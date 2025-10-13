@@ -1,8 +1,8 @@
-import { TechStack } from "@/config/developer-stack";
+import type { TechStack } from "@/config/developer-stack";
 
 interface Experience {
   company: string;
-  logo?: string;
+  logo: string;
   designation: string;
   type: "Full-time" | "Part-time" | "Internship" | "Freelance" | "Contract";
   startDate: string;

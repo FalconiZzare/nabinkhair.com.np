@@ -1,4 +1,4 @@
-import { TechStack } from "@/config/developer-stack";
+import type { TechStack } from "@/config/developer-stack";
 
 interface Projects {
   icon: string;

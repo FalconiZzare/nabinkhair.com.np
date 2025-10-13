@@ -1,22 +1,21 @@
-import StackBadge from "@/components/ui/stack-badge";
-import ShellWrapper from "./shell-wrapper";
-import { ExperienceData } from "@/config/developer-experience";
 import { DotIcon, PlusIcon } from "lucide-react";
+import Image from "next/image";
+import StackBadge from "@/components/ui/stack-badge";
+import { ExperienceData } from "@/config/developer-experience";
+import ShellWrapper from "./shell-wrapper";
 
 const DeveloperExperience = () => {
   return (
     <ShellWrapper>
       <div className="space-y-3 p-2">
         <header className="space-y-2">
-          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
-            My Journey
-          </p>
+          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">My Journey</p>
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Professional Experience
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            A timeline of my career path, showcasing the roles and technologies
-            I've worked with in various projects and companies.
+            A timeline of my career path, showcasing the roles and technologies I've worked with in
+            various projects and companies.
           </p>
         </header>
 
@@ -26,9 +25,11 @@ const DeveloperExperience = () => {
               <summary className="flex cursor-pointer items-center justify-between p-2">
                 <div className="flex space-x-2">
                   <div>
-                    <img
+                    <Image
                       src={experience.logo}
                       alt={experience.company}
+                      width={32}
+                      height={32}
                       className="h-8 w-8 mt-1 rounded object-contain"
                     />
                   </div>

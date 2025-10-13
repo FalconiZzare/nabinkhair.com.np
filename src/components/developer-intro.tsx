@@ -1,6 +1,6 @@
 import Image from "next/image";
-import ShellWrapper from "./shell-wrapper";
 import { DeveloperDetails } from "@/config/developer-details";
+import ShellWrapper from "./shell-wrapper";
 
 const DeveloperIntro = () => {
   const { name, designation, bio, avatar } = DeveloperDetails;
@@ -27,9 +27,7 @@ const DeveloperIntro = () => {
                 {designation}
               </p>
             </div>
-            <p className="text-base leading-relaxed text-justify text-muted-foreground">
-              {bio}
-            </p>
+            <p className="text-base leading-relaxed text-justify text-muted-foreground">{bio}</p>
           </div>
         </div>
       </div>

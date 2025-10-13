@@ -79,8 +79,7 @@ export const DeveloperDetails: DeveloperConfig = {
   },
   seo: {
     title: "Nabin Khair — Frontend Developer",
-    description:
-      "Nabin Khair — Frontend developer building accessible, high-performance web apps.",
+    description: "Nabin Khair — Frontend developer building accessible, high-performance web apps.",
     keywords: ["frontend", "developer", "react", "nextjs", "typescript"],
   },
   education: [

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
@@ -23,7 +23,8 @@
         "noRedundantRoles": "off"
       },
       "suspicious": {
-        "noArrayIndexKey": "off"
+        "noArrayIndexKey": "off",
+        "noUnknownAtRules": "off"
       },
       "complexity": {
         "noStaticOnlyClass": "off"
@@ -36,18 +37,24 @@
       }
     }
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "javascript": {
     "formatter": {
       "quoteStyle": "double",
-      "semicolons": "always",
-      "trailingCommas": "es5"
+      "semicolons": "asNeeded",
+      "trailingCommas": "none"
     }
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["node_modules", "dist", ".next", "out", "build", "public"]
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/.next",
+      "!**/out",
+      "!**/build",
+      "!**/public"
+    ]
   }
 }

@@ -1,7 +1,8 @@
-import StackBadge from "@/components/ui/stack-badge";
-import ShellWrapper from "./shell-wrapper";
-import { ProjectsData } from "@/config/developer-projects";
 import { DotIcon, PlusIcon } from "lucide-react";
+import Image from "next/image";
+import StackBadge from "@/components/ui/stack-badge";
+import { ProjectsData } from "@/config/developer-projects";
+import ShellWrapper from "./shell-wrapper";
 
 const DeveloperProjects = () => {
   return (
@@ -26,9 +27,11 @@ const DeveloperProjects = () => {
               <summary className="flex cursor-pointer items-center justify-between p-2">
                 <div className="flex space-x-2">
                   <div>
-                    <img
+                    <Image
                       src={projects.icon}
                       alt={projects.title}
+                      width={32}
+                      height={32}
                       className="h-8 w-8 mt-1 rounded  object-contain"
                     />
                   </div>

@@ -1,8 +1,8 @@
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
-import { Metadata } from "next";
-import { DeveloperDetails } from "@/config/developer-details";
+import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import { DeveloperDetails } from "@/config/developer-details";
 
 export const metadata: Metadata = {
   title: DeveloperDetails.seo.title,

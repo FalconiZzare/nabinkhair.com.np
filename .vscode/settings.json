@@ -2,7 +2,7 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "always",
-    "source.removeUnusedImports": "always"
+    "source.removeUnusedImports": "always",
   },
   "typescript.autoClosingTags": true,
   "typescript.suggest.autoImports": true,
@@ -18,10 +18,10 @@
   },
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifier": "non-relative",
-
+  
   "tailwindcss-intellisense.trace.server": "verbose",
   "tailwindCSS.classAttributes": ["class", "className", "ngClass", "class:list"],
-
+  
   "files.exclude": {
     "**/.git": true,
     "**/.DS_Store": true,
@@ -29,7 +29,11 @@
     "**/dist": true,
     "**/build": true
   },
-  "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
-  }
+  
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
 }
