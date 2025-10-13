@@ -5,7 +5,7 @@ export interface DeveloperConfig {
   email?: string;
   phone?: string;
   bio?: string;
-  avatar?: string;
+  avatar: string;
   resume?: string;
   socialLinks?: {
     linkedin?: string;

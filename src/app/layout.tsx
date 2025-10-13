@@ -1,5 +1,21 @@
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { Metadata } from "next";
+import { DeveloperDetails } from "@/config/developer-details";
+import { Space_Grotesk } from "next/font/google";
+
+export const metadata: Metadata = {
+  title: DeveloperDetails.seo.title,
+  description: DeveloperDetails.seo.description,
+  keywords: DeveloperDetails.seo.keywords,
+  authors: [{ name: DeveloperDetails.name }],
+  creator: DeveloperDetails.name,
+};
+
+const font = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 export default function RootLayout({
   children,
@@ -9,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body>
+      <body className={font.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
