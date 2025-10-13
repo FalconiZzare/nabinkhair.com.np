@@ -41,8 +41,8 @@ export const DeveloperDetails: DeveloperConfig = {
   designation: "Frontend Developer",
   portfolio: "http://nabinkhair.com.np",
   email: "nabinkhair12@gmail.com",
-  bio: "Frontend developer focusing on modern web apps, UI/UX and accessible experiences.",
-  avatar: "https://nabinkhair.com.np/nabin_khair.webp",
+  bio: "Hello, World! I am Nabin Khair, full-stack developer from Nepal with more than 2 years of experience in web development. I love to create beautiful, functional, and user-friendly websites and applications.",
+  avatar: "/nabin_khair.webp",
   resume: "https://nabinkhair.com.np/nabin_khair.pdf",
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/nabinkhair42/",
