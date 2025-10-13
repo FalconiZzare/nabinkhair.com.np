@@ -1,17 +1,18 @@
 import { TechStack } from "@/config/developer-stack";
 
 interface Projects {
+  icon: string;
   title: string;
   tagline: string;
   description: Array<string>;
-  image: string;
   liveLink?: string;
   repo?: string;
-  techStack?: Array<TechStack>;
+  techStack: Array<TechStack>;
 }
 
 export const ProjectsData: Projects[] = [
   {
+    icon: "/projects/fastly.png",
     title: "Fastly",
     tagline: "SaaS Starter Kit",
     description: [
@@ -21,7 +22,6 @@ export const ProjectsData: Projects[] = [
       "Image Uploading with Uploadthing",
       "Builtin Vercel Deployment",
     ],
-    image: "/projects/fastly.png",
     liveLink: "https://fastly.nabinkhair.com.np",
     repo: "https://github.com/nabinkhair42/fastly",
     techStack: [
@@ -29,12 +29,14 @@ export const ProjectsData: Projects[] = [
       { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
       { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
       { name: "MongoDB", icon: "/tech-icon/mongodb.svg" },
-      { name: "Vercel", icon: "/tech-icon/vercel-dark.svg", hasDarkIcon: true },
-      { name: "React Query", icon: "/tech-icon/react-query.svg" },
-      { name: "Zod", icon: "/tech-icon/zod.svg", hasDarkIcon: true },
+      { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
+      { name: "React Query", icon: "/tech-icon/reactquery.svg" },
+      { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
+      { name: "Zod", icon: "/tech-icon/zod.svg" },
     ],
   },
   {
+    icon: "/projects/flow-mint.png",
     title: "FlowMint",
     tagline: "Diagrams Made Effortless",
     description: [
@@ -43,7 +45,6 @@ export const ProjectsData: Projects[] = [
       "Export diagrams in multiple formats including PNG, SVG",
       "User authentication and management with JWT",
     ],
-    image: "/projects/flowmint.png",
     liveLink: "https://flowmint.nabinkhair.com.np",
     repo: "https://github.com/nabinkhair42/flowmint",
     techStack: [
@@ -51,9 +52,43 @@ export const ProjectsData: Projects[] = [
       { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
       { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
       { name: "MongoDB", icon: "/tech-icon/mongodb.svg" },
-      { name: "Vercel", icon: "/tech-icon/vercel-dark.svg", hasDarkIcon: true },
-      { name: "React Query", icon: "/tech-icon/react-query.svg" },
-      { name: "Zod", icon: "/tech-icon/zod.svg", hasDarkIcon: true },
+      { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
+      { name: "React Query", icon: "/tech-icon/reactquery.svg" },
+      { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
+      { name: "Zod", icon: "/tech-icon/zod.svg" },
+    ],
+  },
+  {
+    icon: "/projects/nepali-educate.png",
+    title: "Nepali Educate",
+    tagline: "Online Learning Platform",
+    description: [
+      "An online learning platform offering a high quality study notes for students of grade  11 and 12",
+      "User-friendly interface for easy navigation and access to study materials.",
+      "Trusted by over 50,000 students across Nepal.",
+      "Over 100k monthly visitors",
+    ],
+    liveLink: "https://nepalieducate.com",
+    techStack: [
+      { name: "Jquery", icon: "/tech-icon/jquery.svg" },
+      { name: "Blogger", icon: "/tech-icon/blogger.svg" },
+      { name: "Canva", icon: "/tech-icon/canva.svg" },
+    ],
+  },
+  {
+    icon: "/projects/vtheme.svg",
+    title: "VTheme",
+    tagline: "Perfect VS Code Theme",
+    liveLink: "https://vthemes.nabinkhair.com.np/",
+    repo: "https://github.com/nabinkhair42/vtheme",
+    description: [
+      "Over 1200+ active users worldwide.",
+      "Carefully crafted colors that enhance coding experience and reduce eye strain.",
+      "A professionally designed color theme based on advanced color theory principles.",
+    ],
+    techStack: [
+      { name: "JSON", icon: "/tech-icon/json.svg" },
+      { name: "VS Code", icon: "/tech-icon/vscode.svg" },
     ],
   },
 ];

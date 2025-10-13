@@ -1,7 +1,15 @@
 import { ReactNode } from "react";
 
 const ShellWrapper = ({ children }: { children: ReactNode }) => {
-  return <div className="flex w-full max-w-xl flex-col">{children}</div>;
+  return (
+    <section className="relative isolate w-full overflow-visible">
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-screen -translate-x-1/2 bg-(--pattern-fg)"></div>
+      <div className="pointer-events-none absolute left-1/2 bottom-0 h-px w-screen -translate-x-1/2 bg-(--pattern-fg)"></div>
+      <div className="relative mx-auto flex w-full max-w-2xl flex-col gap-8">
+        {children}
+      </div>
+    </section>
+  );
 };
 
 export default ShellWrapper;

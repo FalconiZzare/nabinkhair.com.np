@@ -19,7 +19,7 @@ const DeveloperIntro = () => {
             className="h-28 w-28 md:h-32 md:w-32 md:mt-2.5 flex-shrink-0 rounded-md border object-cover shadow-md"
           />
           <div className="space-y-2">
-            <div>
+            <div className="space-y-1">
               <h1 className="mt-1 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
                 {name}
               </h1>

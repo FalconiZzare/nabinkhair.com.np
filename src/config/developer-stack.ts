@@ -25,11 +25,12 @@ export const TechStacksList: TechStack[] = [
   { name: "React.js", icon: "/tech-icon/react.svg" },
   {
     name: "React Query",
-    icon: "/tech-icon/react-query.svg",
+    icon: "/tech-icon/reactquery.svg",
   },
   { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
   { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
-  { name: "Vercel", icon: "/tech-icon/vercel-dark.svg", hasDarkIcon: true },
+  { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
   { name: "Vite", icon: "/tech-icon/vitejs.svg" },
-  { name: "Zod", icon: "/tech-icon/zod.svg", hasDarkIcon: true },
+  { name: "Zod", icon: "/tech-icon/zod.svg" },
+  { name: "Zustand", icon: "/tech-icon/zustand.svg" },
 ];
