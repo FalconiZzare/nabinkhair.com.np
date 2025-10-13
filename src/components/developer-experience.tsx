@@ -23,8 +23,8 @@ const DeveloperExperience = () => {
         <div className="flex flex-col space-y-3">
           {ExperienceData.map((experience, index) => (
             <details key={index} className="group">
-              <summary className="flex cursor-pointer items-center justify-between">
-                <div className="flex space-x-3">
+              <summary className="flex cursor-pointer items-center justify-between p-2">
+                <div className="flex space-x-2">
                   <div>
                     <img
                       src={experience.logo}
@@ -38,15 +38,15 @@ const DeveloperExperience = () => {
                         {experience.company}
                       </h3>
                       {experience.isCurrent && (
-                        <div className="border h-2 w-2 flex items-center justify-center border-blue-500 rounded-full ">
-                          <span className="h-2 w-2 inline-flex rounded-full opacity-75 bg-blue-400 animate-pulse duration-700" />
+                        <div className="border h-2 w-2 flex items-center justify-center border-blue-600 rounded-full ">
+                          <span className="h-2 w-2 inline-flex rounded-full opacity-75 bg-blue-500 animate-caret-blink duration-700" />
                         </div>
                       )}
                     </div>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-sm text-muted-foreground">
                       {experience.designation} • {experience.type}
                     </p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-sm text-muted-foreground">
                       {experience.startDate} - {experience.endDate}
                     </p>
                   </div>

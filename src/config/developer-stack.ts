@@ -27,6 +27,7 @@ export const TechStacksList: TechStack[] = [
     name: "React Query",
     icon: "/tech-icon/reactquery.svg",
   },
+  { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
   { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
   { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
   { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },

@@ -1,21 +1,20 @@
 export interface DeveloperConfig {
   name: string;
-  designation?: string;
-  portfolio?: string;
-  email?: string;
+  designation: string;
+  portfolio: string;
+  email: string;
   phone?: string;
-  bio?: string;
+  bio: string;
   avatar: string;
-  resume?: string;
-  socialLinks?: {
-    linkedin?: string;
-    github?: string;
-    twitter?: string;
-    facebook?: string;
-    instagram?: string;
-    youtube?: string;
-    [key: string]: string | undefined;
-  };
+  resume: string;
+  socialLinks: {
+    name: string;
+    url: string;
+    icon: string;
+    hasDarkIcon: boolean;
+    handle: string;
+  }[];
+
   location: {
     city: string;
     country: string;
@@ -44,13 +43,36 @@ export const DeveloperDetails: DeveloperConfig = {
   bio: "Hello, World! I am Nabin Khair, full-stack developer from Nepal with more than 2 years of experience in web development. I love to create beautiful, functional, and user-friendly websites and applications.",
   avatar: "/nabin_khair.webp",
   resume: "https://nabinkhair.com.np/nabin_khair.pdf",
-  socialLinks: {
-    linkedin: "https://www.linkedin.com/in/nabinkhair42/",
-    github: "https://github.com/nabinkhair42",
-    twitter: "https://twitter.com/khairnabin",
-    facebook: "https://www.facebook.com/nabinkhair2",
-    instagram: "https://www.instagram.com/nabinkhair2",
-  },
+  socialLinks: [
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/nabinkhair42/",
+      icon: "/social/linkedin.svg",
+      hasDarkIcon: false,
+      handle: "nabinkhair42",
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/nabinkhair42",
+      icon: "/social/github.svg",
+      hasDarkIcon: true,
+      handle: "nabinkhair42",
+    },
+    {
+      name: "Twitter",
+      url: "https://twitter.com/khairnabin",
+      icon: "/social/twitter.svg",
+      hasDarkIcon: false,
+      handle: "khairnabin",
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/nabinkhair2",
+      icon: "/social/instagram.svg",
+      hasDarkIcon: false,
+      handle: "nabinkhair2",
+    },
+  ],
   location: {
     city: "Dharan",
     country: "Nepal",

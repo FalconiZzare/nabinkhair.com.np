@@ -23,8 +23,8 @@ const DeveloperProjects = () => {
         <div className="flex flex-col space-y-3">
           {ProjectsData.map((projects, index) => (
             <details key={index} className="group">
-              <summary className="flex cursor-pointer items-center justify-between">
-                <div className="flex space-x-3">
+              <summary className="flex cursor-pointer items-center justify-between p-2">
+                <div className="flex space-x-2">
                   <div>
                     <img
                       src={projects.icon}
@@ -36,7 +36,7 @@ const DeveloperProjects = () => {
                     <h3 className="text-lg font-semibold text-foreground md:text-xl">
                       {projects.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-sm text-muted-foreground">
                       {projects.tagline}
                     </p>
                   </div>

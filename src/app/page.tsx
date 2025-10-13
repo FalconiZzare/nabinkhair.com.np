@@ -1,3 +1,4 @@
+import DeveloperConnect from "@/components/developer-connect";
 import DeveloperExperience from "@/components/developer-experience";
 import DeveloperIntro from "@/components/developer-intro";
 import DeveloperProjects from "@/components/developer-projects";
@@ -8,9 +9,10 @@ const Page = () => {
   return (
     <PageShellWrapper>
       <DeveloperIntro />
-      <DeveloperStack />
       <DeveloperProjects />
       <DeveloperExperience />
+      <DeveloperStack />
+      <DeveloperConnect />
     </PageShellWrapper>
   );
 };

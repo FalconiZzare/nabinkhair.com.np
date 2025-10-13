@@ -21,38 +21,47 @@ const DeveloperStack = () => {
           </p>
         </header>
 
-        <div className="grid grid-cols-5 gap-3 md:grid-cols-6 md:gap-4">
-          {TechStacksList.map(({ name, icon, hasDarkIcon }) => {
-            const darkVariant = icon.replace(".svg", "-dark.svg");
+        <div className="overflow-hidden rounded">
+          <div className="grid grid-cols-4 sm:grid-cols-5 gap-3 ">
+            {TechStacksList.map(({ name, icon, hasDarkIcon }) => {
+              const darkVariant = icon.replace(".svg", "-dark.svg");
 
-            return (
-              <div
-                key={name}
-                className="relative mx-auto flex aspect-square w-full max-w-[80px] items-center justify-center border"
-              >
-                <Image
-                  src={icon}
-                  alt={name}
-                  width={64}
-                  height={64}
-                  title={name}
-                  className={`relative h-12 w-12 object-contain ${
-                    hasDarkIcon ? "dark:hidden" : ""
-                  }`}
-                />
-                {hasDarkIcon ? (
-                  <Image
-                    src={darkVariant}
-                    alt={name}
-                    width={64}
-                    height={64}
-                    title={name}
-                    className="relative hidden h-12 w-12 object-contain dark:block"
-                  />
-                ) : null}
-              </div>
-            );
-          })}
+              return (
+                <article
+                  key={name}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <span className="flex size-12 items-center justify-center rounded-lg border bg-muted/40">
+                    <Image
+                      src={icon}
+                      alt={name}
+                      width={20}
+                      height={20}
+                      title={name}
+                      className={`h-6 w-6 object-contain ${
+                        hasDarkIcon ? "dark:hidden" : ""
+                      }`}
+                    />
+                    {hasDarkIcon && (
+                      <Image
+                        src={darkVariant}
+                        alt={name}
+                        title={name}
+                        width={20}
+                        height={20}
+                        className="hidden h-6 w-6 object-contain dark:block"
+                      />
+                    )}
+                  </span>
+                  <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+                    <span className="truncate text-sm font-semibold text-foreground">
+                      {name}
+                    </span>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </ShellWrapper>
