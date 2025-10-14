@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { DeveloperDetails } from "@/config/developer-details";
-import ShellWrapper from "./shell-wrapper";
+import Image from "next/image"
+import { DeveloperDetails } from "@/config/developer-details"
+import ShellWrapper from "./shell-wrapper"
 
 const DeveloperIntro = () => {
-  const { name, designation, bio, avatar } = DeveloperDetails;
+  const { name, designation, bio, avatar } = DeveloperDetails
 
-  console.log("Avatar", avatar);
+  console.log("Avatar", avatar)
 
   return (
     <ShellWrapper>
@@ -32,7 +32,7 @@ const DeveloperIntro = () => {
         </div>
       </div>
     </ShellWrapper>
-  );
-};
+  )
+}
 
-export default DeveloperIntro;
+export default DeveloperIntro

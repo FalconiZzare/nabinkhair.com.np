@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Image from "next/image"
 
 interface StackBadgeProps {
-  name: string;
-  icon: string;
-  hasDarkIcon?: boolean;
+  name: string
+  icon: string
+  hasDarkIcon?: boolean
 }
 
 const StackBadge = ({ name, icon, hasDarkIcon }: StackBadgeProps) => {
@@ -27,7 +27,7 @@ const StackBadge = ({ name, icon, hasDarkIcon }: StackBadgeProps) => {
       ) : null}
       <span className="text-sm font-medium">{name}</span>
     </div>
-  );
-};
+  )
+}
 
-export default StackBadge;
+export default StackBadge

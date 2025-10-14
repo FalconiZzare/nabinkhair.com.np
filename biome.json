@@ -54,7 +54,8 @@
       "!**/.next",
       "!**/out",
       "!**/build",
-      "!**/public"
+      "!**/public",
+      "!**/.vscode"
     ]
   }
 }

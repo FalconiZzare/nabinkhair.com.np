@@ -1,13 +1,13 @@
-import { ArrowUpRight, FileText, Mail } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { DeveloperDetails } from "@/config/developer-details";
-import { cn } from "@/lib/utils";
-import ShellWrapper from "./shell-wrapper";
+import { ArrowUpRight, FileText, Mail } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import ShellWrapper from "@/components/shell-wrapper"
+import { Button } from "@/components/ui/button"
+import { DeveloperDetails } from "@/config/developer-details"
+import { cn } from "@/lib/utils"
 
 const DeveloperConnect = () => {
-  const SocialLinks = DeveloperDetails.socialLinks;
+  const SocialLinks = DeveloperDetails.socialLinks
   return (
     <ShellWrapper>
       <div className="space-y-3 p-2">
@@ -21,7 +21,7 @@ const DeveloperConnect = () => {
           </p>
         </header>
 
-        <div className="overflow-hidden rounded">
+        <div className="overflow-hidden">
           <div className="grid grid-cols-2 ">
             {Object.entries(SocialLinks).map(([key, link]) => (
               <article key={key} className="flex items-center gap-4 p-3 border">
@@ -93,7 +93,7 @@ const DeveloperConnect = () => {
         </div>
       </div>
     </ShellWrapper>
-  );
-};
+  )
+}
 
-export default DeveloperConnect;
+export default DeveloperConnect

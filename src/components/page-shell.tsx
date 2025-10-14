@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from "react"
 
 const PageShellWrapper = ({ children }: { children: ReactNode }) => {
   return (
@@ -11,7 +11,7 @@ const PageShellWrapper = ({ children }: { children: ReactNode }) => {
       <div className="pointer-events-none relative -bottom-px col-span-full col-start-1 row-start-2 h-px bg-(--pattern-fg)"></div>
       <div className="pointer-events-none relative -top-px col-span-full col-start-1 row-start-4 h-px bg-(--pattern-fg)"></div>
     </div>
-  );
-};
+  )
+}
 
-export default PageShellWrapper;
+export default PageShellWrapper

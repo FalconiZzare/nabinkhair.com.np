@@ -1,26 +1,26 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
-import { ThemeProvider } from "next-themes";
-import { DeveloperDetails } from "@/config/developer-details";
+import "./globals.css"
+import type { Metadata } from "next"
+import { Space_Grotesk } from "next/font/google"
+import { ThemeProvider } from "next-themes"
+import { DeveloperDetails } from "@/config/developer-details"
 
 export const metadata: Metadata = {
   title: DeveloperDetails.seo.title,
   description: DeveloperDetails.seo.description,
   keywords: DeveloperDetails.seo.keywords,
   authors: [{ name: DeveloperDetails.name }],
-  creator: DeveloperDetails.name,
-};
+  creator: DeveloperDetails.name
+}
 
 const font = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-});
+  variable: "--font-space-grotesk"
+})
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -36,5 +36,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

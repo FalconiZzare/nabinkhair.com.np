@@ -1,23 +1,21 @@
-import { DotIcon, PlusIcon } from "lucide-react";
-import Image from "next/image";
-import StackBadge from "@/components/ui/stack-badge";
-import { ProjectsData } from "@/config/developer-projects";
-import ShellWrapper from "./shell-wrapper";
+import { DotIcon, PlusIcon } from "lucide-react"
+import Image from "next/image"
+import StackBadge from "@/components/ui/stack-badge"
+import { ProjectsData } from "@/config/developer-projects"
+import ShellWrapper from "./shell-wrapper"
 
 const DeveloperProjects = () => {
   return (
     <ShellWrapper>
       <div className="space-y-3 p-2">
         <header className="space-y-2">
-          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
-            My Work
-          </p>
+          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">My Work</p>
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Projects I&apos;m proud of
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
-            A snapshot of product-focused experiments and client work where I
-            handled everything from UX flow to production deployment.
+            A snapshot of product-focused experiments and client work where I handled everything
+            from UX flow to production deployment.
           </p>
         </header>
 
@@ -39,9 +37,7 @@ const DeveloperProjects = () => {
                     <h3 className="text-lg font-semibold text-foreground md:text-xl">
                       {projects.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {projects.tagline}
-                    </p>
+                    <p className="text-sm text-muted-foreground">{projects.tagline}</p>
                   </div>
                 </div>
                 <span className="text-sm uppercase tracking-[0.3em] text-muted-foreground transition group-open:rotate-45">
@@ -81,7 +77,7 @@ const DeveloperProjects = () => {
         </div>
       </div>
     </ShellWrapper>
-  );
-};
+  )
+}
 
-export default DeveloperProjects;
+export default DeveloperProjects

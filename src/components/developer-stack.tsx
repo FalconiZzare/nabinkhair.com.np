@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { TechStacksList } from "@/config/developer-stack";
-import ShellWrapper from "./shell-wrapper";
+import Image from "next/image"
+import { TechStacksList } from "@/config/developer-stack"
+import ShellWrapper from "./shell-wrapper"
 
 const DeveloperStack = () => {
   return (
@@ -22,7 +22,7 @@ const DeveloperStack = () => {
         <div className="overflow-hidden rounded">
           <div className="grid grid-cols-4 sm:grid-cols-5 gap-3 ">
             {TechStacksList.map(({ name, icon, hasDarkIcon }) => {
-              const darkVariant = icon.replace(".svg", "-dark.svg");
+              const darkVariant = icon.replace(".svg", "-dark.svg")
 
               return (
                 <article key={name} className="flex flex-col items-center gap-2">
@@ -50,13 +50,13 @@ const DeveloperStack = () => {
                     <span className="truncate text-sm font-semibold text-foreground">{name}</span>
                   </div>
                 </article>
-              );
+              )
             })}
           </div>
         </div>
       </div>
     </ShellWrapper>
-  );
-};
+  )
+}
 
-export default DeveloperStack;
+export default DeveloperStack
