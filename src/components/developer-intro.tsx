@@ -9,7 +9,7 @@ const DeveloperIntro = () => {
 
   return (
     <ShellWrapper>
-      <div className="relative overflow-hidden p-2">
+      <div className="relative p-2 bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)]">
         <div className="flex flex-col md:flex-row md:justify-between md:space-x-3 space-y-3 md:space-y-0 ">
           <Image
             src={avatar}

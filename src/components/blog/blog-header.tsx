@@ -10,9 +10,9 @@ interface BlogHeaderProps {
 
 export function BlogHeader({ frontmatter, readingTime }: BlogHeaderProps) {
   return (
-    <ShellWrapper>
-      <div>
-        <header className="space-y-3 p-2">
+    <>
+      <ShellWrapper>
+        <header className="space-y-3 p-2 bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)]">
           <div className="space-y-2">
             <h1 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
               {frontmatter.title}
@@ -45,10 +45,11 @@ export function BlogHeader({ frontmatter, readingTime }: BlogHeaderProps) {
             </div>
           </div>
         </header>
+      </ShellWrapper>
 
+      <ShellWrapper>
         {frontmatter.image && (
-          <div className=""> 
-          {/* // TODO: Add shell in the background will be visible as pattern when the image is being downloaded */}
+          <div className="overflow-hidden bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)] rounded-md border bg-muted">
             <Image
               src={frontmatter.image}
               width={1000}
@@ -59,7 +60,7 @@ export function BlogHeader({ frontmatter, readingTime }: BlogHeaderProps) {
             />
           </div>
         )}
-      </div>
-    </ShellWrapper>
+      </ShellWrapper>
+    </>
   );
 }

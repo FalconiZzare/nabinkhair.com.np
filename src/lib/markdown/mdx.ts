@@ -2,8 +2,9 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
+import remarkGfm from 'remark-gfm';
 
-const contentDirectory = path.join(process.cwd(), 'src/content/blog');
+const contentDirectory = path.join(process.cwd(), '/blog-content');
 
 export interface BlogFrontmatter {
   title: string;
@@ -20,6 +21,15 @@ export interface BlogPost {
   content: string;
   readingTime: string;
 }
+
+/**
+ * MDX options with remark-gfm for table support
+ */
+export const mdxOptions = {
+  mdxOptions: {
+    remarkPlugins: [remarkGfm],
+  },
+};
 
 /**
  * Get all blog post slugs
@@ -80,4 +90,3 @@ export function getAllBlogPosts(): BlogPost[] {
   
   return posts;
 }
-

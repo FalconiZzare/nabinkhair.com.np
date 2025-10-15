@@ -1,9 +1,8 @@
-import type { MDXComponents } from "mdx/types";
+import { cn } from "@/lib/utils";
+import { CodeBlock } from "@/lib/markdown/code-block";
 import Image, { type ImageProps } from "next/image";
-import Link from "next/link";
+import type { MDXComponents } from "mdx/types";
 
-import { cn } from "../utils";
-import { CodeBlock } from "./code-block";
 
 type CodeChild = {
   props: {
@@ -32,30 +31,131 @@ function isCodeChild(node: unknown): node is CodeChild {
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    h1: ({ children }) => <h1 className="text-4xl font-bold tracking-tight">{children}</h1>,
-    h2: ({ children }) => (
-      <h2 className="text-3xl font-semibold tracking-tight">
-        {children}
-      </h2>
-    ),
-    h3: ({ children }) => <h3 className="text-2xl font-semibold tracking-tight">{children}</h3>,
-    h4: ({ children }) => <h4 className="text-xl font-semibold tracking-tight">{children}</h4>,
-    p: ({ children }) => <p className="leading-7 [&:not(:first-child)]:mt-3 mx-3">{children}</p>,
-    a: ({ href, children }) => (
-      <Link
-        href={href || "#"}
-        className="font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
-      >
-        {children}
-      </Link>
-    ),
-    ul: ({ children }) => <ul className="ml-6 list-disc [&>li]:mt-2">{children}</ul>,
-    ol: ({ children }) => <ol className="ml-6 list-decimal [&>li]:mt-2">{children}</ol>,
-    blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-primary pl-6 italic [&>*]:text-muted-foreground">
-        {children}
-      </blockquote>
-    ),
+      h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
+    <h1
+      className={cn(
+        "font-heading mt-2 scroll-m-28 text-3xl font-bold tracking-tight",
+        className
+      )}
+      {...props}
+    />
+  ),
+  h2: ({ className, ...props }: React.ComponentProps<"h2">) => {
+    return (
+      <h2
+        id={props.children
+          ?.toString()
+          .replace(/ /g, "-")
+          .replace(/'/g, "")
+          .replace(/\?/g, "")
+          .toLowerCase()}
+        className={cn(
+          "font-heading [&+]*:[code]:text-xl mt-10 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16 [&+.steps]:!mt-0 [&+.steps>h3]:!mt-4 [&+h3]:!mt-6 [&+p]:!mt-4",
+          className
+        )}
+        {...props}
+      />
+    )
+  },
+  h3: ({ className, ...props }: React.ComponentProps<"h3">) => (
+    <h3
+      className={cn(
+        "font-heading mt-12 scroll-m-28 text-lg font-medium tracking-tight [&+p]:!mt-4 *:[code]:text-xl",
+        className
+      )}
+      {...props}
+    />
+  ),
+  h4: ({ className, ...props }: React.ComponentProps<"h4">) => (
+    <h4
+      className={cn(
+        "font-heading mt-8 scroll-m-28 text-base font-medium tracking-tight",
+        className
+      )}
+      {...props}
+    />
+  ),
+  h5: ({ className, ...props }: React.ComponentProps<"h5">) => (
+    <h5
+      className={cn(
+        "mt-8 scroll-m-28 text-base font-medium tracking-tight",
+        className
+      )}
+      {...props}
+    />
+  ),
+  h6: ({ className, ...props }: React.ComponentProps<"h6">) => (
+    <h6
+      className={cn(
+        "mt-8 scroll-m-28 text-base font-medium tracking-tight",
+        className
+      )}
+      {...props}
+    />
+  ),
+  a: ({ className, ...props }: React.ComponentProps<"a">) => (
+    <a
+      className={cn("font-medium underline underline-offset-4", className)}
+      {...props}
+    />
+  ),
+  p: ({ className, ...props }: React.ComponentProps<"p">) => (
+    <p
+      className={cn("leading-relaxed [&:not(:first-child)]:mt-6", className)}
+      {...props}
+    />
+  ),
+  strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+    <strong className={cn("font-medium", className)} {...props} />
+  ),
+  ul: ({ className, ...props }: React.ComponentProps<"ul">) => (
+    <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+  ),
+  ol: ({ className, ...props }: React.ComponentProps<"ol">) => (
+    <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
+  ),
+  li: ({ className, ...props }: React.ComponentProps<"li">) => (
+    <li className={cn("mt-2", className)} {...props} />
+  ),
+  blockquote: ({ className, ...props }: React.ComponentProps<"blockquote">) => (
+    <blockquote
+      className={cn("mt-6 border-l-2 pl-6 italic", className)}
+      {...props}
+    />
+  ),
+  table: ({ className, ...props }: React.ComponentProps<"table">) => (
+    <div className="no-scrollbar my-6 w-full overflow-y-auto rounded-lg border">
+      <table
+        className={cn(
+          "relative w-full overflow-hidden border-none text-sm [&_tbody_tr:last-child]:border-b-0",
+          className
+        )}
+        {...props}
+      />
+    </div>
+  ),
+  tr: ({ className, ...props }: React.ComponentProps<"tr">) => (
+    <tr className={cn("m-0 border-b", className)} {...props} />
+  ),
+  th: ({ className, ...props }: React.ComponentProps<"th">) => (
+    <th
+      className={cn(
+        "px-4 py-2 text-left font-bold bg-muted/50 [&[align=center]]:text-center [&[align=right]]:text-right",
+        className
+      )}
+      {...props}
+    />
+  ),
+  td: ({ className, ...props }: React.ComponentProps<"td">) => (
+    <td
+      className={cn(
+        "px-4 py-2 text-left whitespace-nowrap [&[align=center]]:text-center [&[align=right]]:text-right",
+        className
+      )}
+      {...props}
+    />
+  ),
+
     code: ({ children, className }) => {
       if (!className) {
         return (
@@ -72,8 +172,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
       if (isCodeChild(child)) {
         const { children: codeContent, className, metastring } = child.props;
-  const langMatch = LANGUAGE_CLASS_REGEX.exec(className ?? "");
-  const lang = langMatch?.[1];
+        const langMatch = LANGUAGE_CLASS_REGEX.exec(className ?? "");
+        const lang = langMatch?.[1];
         const meta = metastring ?? child.props["data-meta"] ?? undefined;
 
         return <CodeBlock code={codeContent} language={lang} meta={meta} />;
@@ -91,52 +191,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     hr: () => <hr className="border" />,
-    table: ({ className, children, ...rest }) => (
-      <div className="my-6 overflow-hidden rounded-lg border border-border bg-card shadow-sm">
-        <table
-          {...rest}
-          className={cn(
-            "w-full border-collapse text-left text-sm leading-6 [&_tbody_tr:last-child_td]:border-b-0",
-            className,
-          )}
-        >
-          {children}
-        </table>
-      </div>
-    ),
-    thead: ({ className, ...rest }) => (
-      <thead
-        {...rest}
-        className={cn(
-          "bg-muted text-xs font-semibold uppercase tracking-wide text-muted-foreground",
-          className,
-        )}
-      />
-    ),
-    tbody: ({ className, ...rest }) => (
-      <tbody
-        {...rest}
-        className={cn("bg-background divide-y divide-border", className)}
-      />
-    ),
-    tr: ({ className, ...rest }) => (
-      <tr
-        {...rest}
-        className={cn("border-b border-border last:border-0 transition-colors hover:bg-muted/30", className)}
-      />
-    ),
-    th: ({ className, ...rest }) => (
-      <th
-        {...rest}
-        className={cn("px-4 py-2 text-left text-foreground border-b border-border", className)}
-      />
-    ),
-    td: ({ className, ...rest }) => (
-      <td
-        {...rest}
-        className={cn("px-4 py-2 align-top text-foreground", className)}
-      />
-    ),
+    
     ...components,
   };
 }

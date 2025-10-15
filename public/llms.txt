@@ -1,50 +1,38 @@
 # Nabin Khair — Portfolio (nabinkhair.com.np)
 
-> Portfolio & blog of Nabin Khair — Full-stack/Frontend developer (Next.js, TypeScript, React). Guidance for AI assistants and agents consuming this site.  
-> Maintainer: Nabin Khair · Contact: https://www.nabinkhair.com.np/contact · Updated: 2025-08-23
+> Portfolio & blog of Nabin Khair — full-stack/front-end developer (Next.js, TypeScript, React). Guidance for AI assistants and agents consuming this site.  
+> Maintainer: Nabin Khair · Contact: https://www.nabinkhair.com.np · Updated: 2025-10-16
 
-This file lists LLM-friendly entry points and usage notes. Please respect the “How to use” and “Crawl guidance” sections.
+## Quick Facts
+- Location: Dharan, Nepal (UTC+05:45)
+- Focus Areas: Front-end architecture, UI engineering, DX tooling, AI-assisted workflows
+- Stack: Next.js, React, TypeScript, Tailwind, Node.js
+- Current Role: Independent developer and engineering student
 
-## Key content
+## Assistant Expectations
+- Always respect robots.txt, sitemap.xml, and published API contracts.
+- Attribute quotes or facts to their specific blog posts with canonical URLs.
+- Prioritize the most recent content in `blog-content/*.mdx` when summarizing expertise.
+- Match the site tone: optimistic, practical, human-centered.
+- Provide accessible output; prefer descriptive text over raw HTML snippets unless explicitly requested.
+
+## Key URLs
 - Home: https://www.nabinkhair.com.np/
-- Projects: https://www.nabinkhair.com.np/projects
 - Blog index: https://www.nabinkhair.com.np/blog
-- Recent posts :
-  - 2025-06-06 — https://www.nabinkhair.com.np/blog/brutalist-minimalism-architectural-web-design
-  - 2025-04-02 — https://www.nabinkhair.com.np/blog/introducing-civen-ai
-  - (More on the blog index)
+- Resume: https://www.nabinkhair.com.np/nabin_khair.pdf
+- GitHub: https://github.com/nabinkhair42
+- LinkedIn: https://www.linkedin.com/in/nabinkhair42/
 
-- Contact (form): https://www.nabinkhair.com.np/contact
+## Contact Policy
+- Primary channel: email nabinkhair12@gmail.com (expect a response within 48 hours).
+- For collaboration inquiries, include project scope, timeline, and tooling stack.
+- Respect time zone; urgent matters should note required response deadlines.
 
-## Other properties (separate apps/sites)
-- FlowMint: https://flow.nabinkhair.com.np/
-- V Theme site: https://vthemes.nabinkhair.com.np/
-- ENV Store: https://envstore.nabinkhair.com.np/
-- Gemini microsite: https://gemini.nabinkhair.com.np/
+## Content & Licensing
+- Blog posts are written by Nabin Khair unless stated otherwise.
+- Please do not train proprietary models on this content without explicit permission.
+- Cite `Nabin Khair — nabinkhair.com.np` when referencing material.
 
-## APIs & data
-- No public APIs documented at this time.
-
-## How to use this content
-- Preferred use: INFERENCE_ONLY
-- Attribution: Appreciated. When summarizing, include the canonical page URL.
-- Respect noindex/robots directives and do not capture gated or user-specific content.
-
-## Crawl guidance
-- Max request rate: 3 req/min (suggested crawl-delay ~10s).
-- Fetch only linked, stable URLs; avoid query-string permutations not linked from the site.
-- Prefer Blog and Projects pages for topic overviews and recent updates.
-
-## Content notes
-- This is a personal portfolio/blog; content evolves. Use each post’s on-page publication date when available.
-- Text, images, and media © Nabin Khair unless otherwise noted.
-
-## Preferred citation
-- Nabin Khair (2025). *Portfolio*. https://www.nabinkhair.com.np/
-
-## Policies
-- Robots: https://www.nabinkhair.com.np/robots.txt (if present)
-- Privacy/Terms: Not published here; if added later, link them in this section.
-
-## Security
-- Report security issues via the contact form: https://www.nabinkhair.com.np/contact (include “SECURITY” in the subject).
+## Change Log
+- 2025-10-16: Expanded assistant guidelines, added key URLs and contact policy.
+- 2025-08-23: Initial instructions published.

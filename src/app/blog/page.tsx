@@ -1,4 +1,4 @@
-import { BlogsGrid } from "@/components/blog";
+import { BlogIntroduction, BlogsGrid, NoMoreBlogs } from "@/components/blog";
 import PageShellWrapper from "@/components/page-shell";
 import { getAllBlogPosts } from "@/lib/markdown";
 
@@ -7,7 +7,9 @@ const BlogPage = () => {
 
   return (
     <PageShellWrapper>
+      <BlogIntroduction />
       <BlogsGrid posts={posts} />
+      <NoMoreBlogs />
     </PageShellWrapper>
   );
 };

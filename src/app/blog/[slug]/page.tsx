@@ -1,7 +1,11 @@
 import { BlogHeader } from "@/components/blog/blog-header";
 import { useMDXComponents } from "@/lib/markdown/mdx-components";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { getAllBlogSlugs, getBlogPostBySlug } from "@/lib/markdown/mdx";
+import {
+  getAllBlogSlugs,
+  getBlogPostBySlug,
+  mdxOptions,
+} from "@/lib/markdown/mdx";
 import { notFound } from "next/navigation";
 import PageShellWrapper from "@/components/page-shell";
 import ShellWrapper from "@/components/shell-wrapper";
@@ -41,13 +45,13 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       type: "article",
       publishedTime: post.frontmatter.date,
       authors: [post.frontmatter.developer],
-      images: post.frontmatter.image ? [post.frontmatter.image] : [],
+      images: post.frontmatter.image,
     },
     twitter: {
       card: "summary_large_image",
       title: post.frontmatter.title,
       description: post.frontmatter.description,
-      images: post.frontmatter.image ? [post.frontmatter.image] : [],
+      images: post.frontmatter.image,
     },
   };
 }
@@ -61,7 +65,6 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
   }
 
   const components = useMDXComponents({});
-
   return (
     <PageShellWrapper>
       <ShellWrapper>
@@ -71,8 +74,12 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
         />
       </ShellWrapper>
       <ShellWrapper>
-        <article>
-          <MDXRemote source={post.content} components={components} />
+        <article className="p-2">  {/* TODO: Think about the padding */}
+          <MDXRemote
+            source={post.content}
+            components={components}
+            options={mdxOptions}
+          />
         </article>
       </ShellWrapper>
     </PageShellWrapper>

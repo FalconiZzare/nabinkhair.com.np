@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import { Space_Grotesk } from "next/font/google"
 import { ThemeProvider } from "next-themes"
 import { DeveloperDetails } from "@/config/developer-details"
-import SiteHeader from "@/components/site-header"
-import SiteFooter from "@/components/site-footer"
+import SiteHeader from "@/components/layouts/site-header"
+import SiteFooter from "@/components/layouts/site-footer"
 
 export const metadata: Metadata = {
   title: DeveloperDetails.seo.title,

@@ -1,5 +1,7 @@
 import type { ReactNode } from "react"
 
+// The Shell Wrapper Idea was taken from https://blocks.tremor.so/blocks/page-shells
+
 const PageShellWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <div className="relative grid min-h-screen w-full grid-cols-[minmax(0,1fr)_2rem_minmax(0,auto)_2rem_minmax(0,1fr)] grid-rows-[1fr_1px_auto_1px_1fr] overflow-x-hidden  [--pattern-fg:var(--muted)]">

@@ -1,6 +1,6 @@
-import { codeToHtml, type BundledLanguage } from "shiki";
+import { type BundledLanguage, codeToHtml } from "shiki";
+import { CopyButton } from "@/lib/markdown/copy-button";
 
-import { CopyButton } from "./copy-button";
 
 const THEMES = {
   light: "github-light-default",
@@ -122,7 +122,7 @@ export async function CodeBlock({ code, language, meta }: CodeBlockProps) {
 
   return (
     <figure
-      className="not-prose mx-2 overflow-hidden rounded border border-border bg-muted/20"
+      className="not-prose overflow-hidden rounded border border-border bg-muted/20"
       data-language={language ?? lang}
     >
       <figcaption className="flex items-center justify-between border-b bg-muted/40 px-2 py-1 text-xs font-medium text-muted-foreground">
