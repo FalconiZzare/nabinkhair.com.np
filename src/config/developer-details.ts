@@ -1,5 +1,6 @@
 export interface DeveloperConfig {
   name: string
+  initials: string
   designation: string
   portfolio: string
   email: string
@@ -30,6 +31,7 @@ export interface DeveloperConfig {
     degree: string
     institution: string
     startDate: string
+    logo: string
     endDate: string
     location: string
   }>
@@ -37,6 +39,7 @@ export interface DeveloperConfig {
 
 export const DeveloperDetails: DeveloperConfig = {
   name: "Nabin Khair",
+  initials: "NK",
   designation: "Frontend Developer",
   portfolio: "http://nabinkhair.com.np",
   email: "nabinkhair12@gmail.com",
@@ -86,6 +89,7 @@ export const DeveloperDetails: DeveloperConfig = {
     {
       degree: "Bachelor of Computer Engineering",
       institution: "IOE Purwanchal Campus",
+      logo: "/education/ioepc.png",
       startDate: "2023",
       endDate: "2027",
       location: "Dharan, Nepal"
@@ -93,6 +97,7 @@ export const DeveloperDetails: DeveloperConfig = {
     {
       degree: "Higher Secondary Education (10+2)",
       institution: "Galaxy Secondary School",
+      logo: "/education/galaxy.png",
       startDate: "2021",
       endDate: "2023",
       location: "Dhangadhi, Nepal"

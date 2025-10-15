@@ -1,0 +1,66 @@
+---
+title: "Biome vs ESLint vs Prettier: Choosing the Right Tool for Your JavaScript/TypeScript Projects"
+description: "A detailed comparison of Biome, ESLint, and Prettier to help you decide which tool best fits your JavaScript/TypeScript development needs."
+developer: "Nabin Khair"
+date: "2025-10-13"
+published: true
+---
+
+# Difference table: Biome vs ESLint vs Prettier
+| Aspect                                    |                                                                                                  **Biome** |                                                                                       **ESLint** |                                                                                   **Prettier** |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------: | -----------------------------------------------------------------------------------------------: | ---------------------------------------------------------------------------------------------: |
+| Primary purpose                           |                      All-in-one tool: linter + formatter + type-aware checks (aims to replace many tools). | Linting (static code analysis) and fix suggestions; configurable rules for code quality & style. |             Opinionated code **formatter** — enforces consistent code style by rewriting code. |
+| Type                                      |                                         Linter + formatter + bundler-features in one tool (single binary). |                                                           Linter (ecosystem of rules & plugins). |                                                                                Formatter only. |
+| Formatting vs linting                     |                                                                    Both — built-in formatter + lint rules. |                       Linting primarily; some formatting-related rules but not a full formatter. |                                      Formatting only (no linting rules like "no-unused-vars"). |
+| Opinionatedness                           |                            Opinionated defaults but configurable; tries to be easier "batteries included". |                                Flexible — minimal defaults, heavily configurable and extensible. |                        Highly opinionated (few style options) — intentionally minimal choices. |
+| Extensibility / plugins                   |                                              Growing plugin system; not as mature as ESLint ecosystem yet. |                             Extremely mature plugin ecosystem (React, TS, Node, security, etc.). |                             Limited: plugins not needed; integration plugins exist for ESLint. |
+| TypeScript support                        |                                                    First-class (built with TS in mind; type-aware checks). |                                              Excellent via `@typescript-eslint` parser + plugin. |                                              Formats TypeScript fine (supports `.ts`, `.tsx`). |
+| Auto-fix / format on save                 |                                              Supports auto-fixing and formatting; single tool can do both. |                         `--fix` auto-fixes many issues; often used with Prettier for formatting. |                                 Formats deterministically; used with editor/CI for autoformat. |
+| Rule customization                        |                                               Configurable; fewer community shareable configs but growing. |                              Highly configurable; many shareable configs (Airbnb, Google, etc.). | Very limited options (line width, tab width, single/double quotes via plugin) — intentionally. |
+| Conflict resolution (formatter vs linter) |                                                       Integrated so fewer conflicts between lint & format. |          Requires extra setup (e.g., `eslint-config-prettier`) to avoid conflicts with Prettier. |       Conflicts resolved by disabling ESLint rules that concern formatting (via integrations). |
+| Performance                               |                                          Fast single binary; aims to be faster by reducing toolchain hops. |                                Performance varies by config/plugins; can be optimized (caching). |                                                      Very fast formatting; designed for speed. |
+| Editor integrations                       |                                                                 Has extensions/IDE integrations; maturing. |                                                       Strong editor integrations (VSCode, etc.). |                                    Excellent editor support; commonly used via format-on-save. |
+| CLI / config files                        |                                                      `biome` CLI; config in `biome.toml` or package field. |                                           `eslint` CLI; config via `.eslintrc.*` (JSON/YAML/JS). |                                     `prettier` CLI; config via `.prettierrc` or package field. |
+| Community & ecosystem                     |                                                Newer — growing but smaller ecosystem than ESLint+Prettier. |                                                     Large, mature, and widely adopted ecosystem. |                                                       Huge adoption as the standard formatter. |
+| Best used when                            | You want a single, fast tool that handles formatting + linting + some type-aware checks with minimal glue. |           You need robust, highly-custom linting rules and plugins (security, complexity, etc.). |                       You want consistent, deterministic formatting and minimal style debates. |
+| CI / Git hooks                            |                                                   Works in CI; can replace multiple steps (format + lint). |                                  Standard in CI; often combined with Prettier and type checkers. |          Standard in CI for formatting; often run with `--check` to fail on unformatted files. |
+
+
+## Quick examples (minimal)
+
+Biome (`package.json` or `biome.toml`):
+
+```jsonc
+// package.json (biome section)
+{
+  "name": "...",
+  "biome": {
+    "format": { "lineWidth": 100 },
+    "linter": { "rules": { "no-unused-vars": "error" } }
+  }
+}
+```
+
+ESLint + Prettier (typical combo):
+
+```js
+// .eslintrc.js
+module.exports = {
+  parser: "@typescript-eslint/parser",
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  plugins: ["@typescript-eslint"]
+};
+
+// .prettierrc
+{ "printWidth": 100, "tabWidth": 2 }
+```
+
+---
+
+## Recommendation / When to choose which
+
+* Choose **Biome** if you want a simpler toolchain (one fast binary) that covers both formatting and linting with modern defaults and tighter integration — good for new projects and smaller teams that want less config overhead.
+* Choose **ESLint + Prettier** if you need the richest linting ecosystem, many community configs/plugins, and fine-grained rule control (common in large or mature codebases). Use Prettier for formatting and configure ESLint to avoid style conflicts.
+* Choose **Prettier alone** if you only care about consistent formatting and prefer its strong, no-debate defaults (and pair it with ESLint if you need static analysis).
+
+Would you like a ready-to-drop config for a React + TypeScript project (Biome *or* ESLint+Prettier)? I can generate one for your preferred setup.

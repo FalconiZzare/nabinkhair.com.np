@@ -12,9 +12,9 @@ const StackBadge = ({ name, icon, hasDarkIcon }: StackBadgeProps) => {
       <Image
         src={icon}
         alt={name}
-        width={16}
-        height={16}
-        className={`h-4 w-4 rounded ${hasDarkIcon ? "hidden" : ""}`}
+        width={20}
+        height={20}
+        className={`h-4 w-4 rounded ${hasDarkIcon ? "dark:hidden" : ""}`}
       />
       {hasDarkIcon ? (
         <Image
@@ -22,7 +22,7 @@ const StackBadge = ({ name, icon, hasDarkIcon }: StackBadgeProps) => {
           alt={name}
           width={16}
           height={16}
-          className="h-4 w-4 rounded dark:block"
+          className="hidden h-4 w-4 rounded dark:block"
         />
       ) : null}
       <span className="text-sm font-medium">{name}</span>

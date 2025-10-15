@@ -1,0 +1,116 @@
+---
+title: "Getting Started with Next.js 15"
+description: "Learn how to build modern web applications with Next.js 15, the latest version of the popular React framework."
+developer: "Nabin Khair"
+date: "2024-02-20"
+published: true
+---
+
+# Getting Started with Next.js 15
+
+Next.js 15 brings exciting new features and improvements that make building React applications even better. Let's explore what's new and how to get started.
+
+## What's New in Next.js 15
+
+Next.js 15 introduces several groundbreaking features:
+
+### 1. React Server Components (Stable)
+
+React Server Components are now stable and ready for production use. They allow you to render components on the server, reducing the JavaScript bundle sent to the client.
+
+```typescript
+// app/page.tsx
+async function getData() {
+  const res = await fetch('https://api.example.com/data');
+  return res.json();
+}
+
+export default async function Page() {
+  const data = await getData();
+  return <div>{data.title}</div>;
+}
+```
+
+### 2. Improved Performance
+
+- **Faster builds** with Turbopack (now stable)
+- **Better caching** strategies
+- **Optimized images** out of the box
+
+### 3. Enhanced Developer Experience
+
+The developer experience has been significantly improved with:
+
+- Better error messages
+- Improved TypeScript support
+- Enhanced debugging tools
+
+## Creating Your First Next.js 15 App
+
+Let's create a new Next.js 15 application:
+
+```bash
+npx create-next-app@latest my-app
+cd my-app
+npm run dev
+```
+
+### Project Structure
+
+A typical Next.js 15 project looks like this:
+
+```
+my-app/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── public/
+├── next.config.js
+└── package.json
+```
+
+## Key Concepts
+
+### App Router
+
+The App Router is the recommended way to build Next.js applications:
+
+- **File-based routing**: Files in the `app` directory automatically become routes
+- **Layouts**: Share UI between pages with layouts
+- **Loading states**: Easy loading UI with `loading.tsx`
+- **Error handling**: Graceful error handling with `error.tsx`
+
+### Data Fetching
+
+Next.js 15 makes data fetching simple:
+
+```typescript
+// Server Component (default)
+async function BlogPost({ params }: { params: { id: string } }) {
+  const post = await fetch(`https://api.example.com/posts/${params.id}`);
+  const data = await post.json();
+  
+  return (
+    <article>
+      <h1>{data.title}</h1>
+      <p>{data.content}</p>
+    </article>
+  );
+}
+```
+
+## Best Practices
+
+Here are some best practices when working with Next.js 15:
+
+1. **Use Server Components by default** - Only use Client Components when needed
+2. **Optimize images** - Use the `next/image` component
+3. **Implement proper caching** - Leverage Next.js caching strategies
+4. **Type safety** - Use TypeScript for better developer experience
+
+## Conclusion
+
+Next.js 15 is a powerful framework that makes building React applications a breeze. With its improved performance, better developer experience, and new features, it's the perfect choice for your next project.
+
+Happy coding! 🎉

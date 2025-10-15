@@ -28,8 +28,8 @@ const DeveloperExperience = () => {
                     <Image
                       src={experience.logo}
                       alt={experience.company}
-                      width={32}
-                      height={32}
+                      width={100}
+                      height={100}
                       className="h-8 w-8 mt-1 rounded object-contain"
                     />
                   </div>

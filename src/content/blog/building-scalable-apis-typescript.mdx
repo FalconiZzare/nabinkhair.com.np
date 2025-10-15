@@ -1,0 +1,259 @@
+---
+title: "Building Scalable APIs with TypeScript"
+description: "A comprehensive guide to building robust and scalable REST APIs using TypeScript, Express, and modern best practices."
+developer: "Nabin Khair"
+date: "2024-03-10"
+published: true
+---
+
+# Building Scalable APIs with TypeScript
+
+TypeScript has become the go-to language for building robust backend services. In this guide, we'll explore how to build scalable REST APIs using TypeScript.
+
+## Why TypeScript for Backend?
+
+TypeScript brings several advantages to backend development:
+
+- **Type Safety**: Catch errors at compile time
+- **Better IDE Support**: Enhanced autocomplete and refactoring
+- **Maintainability**: Easier to understand and maintain code
+- **Documentation**: Types serve as inline documentation
+
+## Setting Up the Project
+
+Let's start by creating a new TypeScript project:
+
+```bash
+mkdir my-api
+cd my-api
+npm init -y
+npm install express
+npm install -D typescript @types/express @types/node ts-node nodemon
+```
+
+Create a `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
+```
+
+## Project Structure
+
+A well-organized project structure is crucial:
+
+```
+my-api/
+├── src/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── services/
+│   ├── utils/
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+## Creating Type-Safe Routes
+
+Here's how to create type-safe Express routes:
+
+```typescript
+// src/types/user.ts
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+}
+
+export interface CreateUserDto {
+  name: string;
+  email: string;
+}
+
+// src/controllers/userController.ts
+import { Request, Response } from 'express';
+import { User, CreateUserDto } from '../types/user';
+
+export class UserController {
+  async getUsers(req: Request, res: Response) {
+    try {
+      const users: User[] = await userService.findAll();
+      res.json(users);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  }
+
+  async createUser(req: Request<{}, {}, CreateUserDto>, res: Response) {
+    try {
+      const userData = req.body;
+      const user = await userService.create(userData);
+      res.status(201).json(user);
+    } catch (error) {
+      res.status(400).json({ error: 'Bad request' });
+    }
+  }
+}
+```
+
+## Middleware with Types
+
+Type-safe middleware is essential:
+
+```typescript
+import { Request, Response, NextFunction } from 'express';
+
+interface AuthRequest extends Request {
+  user?: {
+    id: string;
+    role: string;
+  };
+}
+
+export const authenticate = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const token = req.headers.authorization?.split(' ')[1];
+    
+    if (!token) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    
+    // Verify token and attach user
+    const user = await verifyToken(token);
+    req.user = user;
+    next();
+  } catch (error) {
+    res.status(401).json({ error: 'Invalid token' });
+  }
+};
+```
+
+## Error Handling
+
+Implement a global error handler:
+
+```typescript
+class AppError extends Error {
+  constructor(
+    public statusCode: number,
+    public message: string,
+    public isOperational = true
+  ) {
+    super(message);
+    Object.setPrototypeOf(this, AppError.prototype);
+  }
+}
+
+const errorHandler = (
+  err: AppError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { statusCode = 500, message } = err;
+  
+  res.status(statusCode).json({
+    status: 'error',
+    statusCode,
+    message,
+  });
+};
+```
+
+## Best Practices
+
+### 1. Use DTOs (Data Transfer Objects)
+
+```typescript
+class CreateUserDto {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
+
+  @IsEmail()
+  email: string;
+}
+```
+
+### 2. Implement Validation
+
+Use libraries like `class-validator` or `zod` for runtime validation:
+
+```typescript
+import { z } from 'zod';
+
+const userSchema = z.object({
+  name: z.string().min(2),
+  email: z.string().email(),
+});
+
+type UserInput = z.infer<typeof userSchema>;
+```
+
+### 3. Separate Business Logic
+
+Keep controllers thin and move business logic to services:
+
+```typescript
+// services/userService.ts
+export class UserService {
+  async createUser(data: CreateUserDto): Promise<User> {
+    // Validation
+    // Business logic
+    // Database operations
+    return user;
+  }
+}
+```
+
+## Testing
+
+Write type-safe tests:
+
+```typescript
+import request from 'supertest';
+import app from '../app';
+
+describe('User API', () => {
+  it('should create a new user', async () => {
+    const userData = {
+      name: 'John Doe',
+      email: 'john@example.com',
+    };
+
+    const response = await request(app)
+      .post('/api/users')
+      .send(userData)
+      .expect(201);
+
+    expect(response.body).toHaveProperty('id');
+    expect(response.body.name).toBe(userData.name);
+  });
+});
+```
+
+## Conclusion
+
+Building APIs with TypeScript provides type safety, better developer experience, and more maintainable code. By following these best practices, you'll create robust and scalable APIs.
+
+Happy coding! 🚀
