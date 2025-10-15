@@ -5,8 +5,6 @@ import ShellWrapper from "./shell-wrapper"
 const DeveloperIntro = () => {
   const { name, designation, bio, avatar } = DeveloperDetails
 
-  console.log("Avatar", avatar)
-
   return (
     <ShellWrapper>
       <div className="relative p-2 bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)]">
