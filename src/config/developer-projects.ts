@@ -55,7 +55,31 @@ export const ProjectsData: Projects[] = [
       { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
       { name: "React Query", icon: "/tech-icon/reactquery.svg" },
       { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
+      { name: "Stripe", icon: "/tech-icon/stripe.svg" },
       { name: "Zod", icon: "/tech-icon/zod.svg" }
+    ]
+  },
+  {
+    icon: "/projects/pro-mcp.svg",
+    title: "Pro MCP",
+    tagline: "Registry of MCP Servers",
+    liveLink: "https://promcp.nabinkhair.com.np",
+    repo: "https://github.com/nabinkhair42/pro-mcp",
+    description: [
+      "Over 4200+ MCP servers listed from around the world.",
+      "Custom Server Listing Website with auto scraping of server information.",
+      "User can search and upload servers information",
+      "User-friendly interface for easy navigation and access to server information.",
+    ],
+    techStack: [
+      { name: "Next.js", icon: "/tech-icon/nextjs.svg", hasDarkIcon: true },
+      { name: "Python", icon: "/tech-icon/python.svg" },
+      { name: "JavaScript", icon: "/tech-icon/js.svg" },
+      { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
+      { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
+      { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
+      { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
+
     ]
   },
   {
@@ -75,6 +99,27 @@ export const ProjectsData: Projects[] = [
       { name: "Canva", icon: "/tech-icon/canva.svg" }
     ]
   },
+
+  {
+    icon: "/projects/juju.png",
+    title: "Juju Connect",
+    tagline: "Your Story, Your Stage",
+    liveLink: "https://jujuconnect.com",
+    description: [
+      "Work on writing and designing the Backend of the Platform",
+      "Hosted and Deployed entire services on AWS and Cloudflare",
+      "Tested and developed APIs using Postman",
+      "Collaborated with cross-functional teams to define, design, and ship new features"
+    ],
+    techStack: [
+      { name: "Node.js", icon: "/tech-icon/nodejs.svg" },
+      { name: "Express.js", icon: "/tech-icon/expressjs.svg" },
+      { name: "MongoDB", icon: "/tech-icon/mongodb.svg" },
+      { name: "AWS", icon: "/tech-icon/aws.svg", hasDarkIcon: true },
+      { name: "Cloudflare", icon: "/tech-icon/cloudflare.svg" },
+      { name: "Postman", icon: "/tech-icon/postman.svg" }
+    ]
+  },
   {
     icon: "/projects/vtheme.svg",
     title: "VTheme",
@@ -90,5 +135,21 @@ export const ProjectsData: Projects[] = [
       { name: "JSON", icon: "/tech-icon/json.svg" },
       { name: "VS Code", icon: "/tech-icon/vscode.svg" }
     ]
+  },
+  {
+    icon: "/tech-icon/nextjs.svg",
+    title: "YourGit",
+    tagline: "GitHub Profile Stats Summary",
+    liveLink: "https://yourgit.vercel.app/",
+    description: [],
+    techStack: [
+      { name: "Next.js", icon: "/tech-icon/nextjs.svg", hasDarkIcon: true },
+      { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
+      { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
+      { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
+      { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
+      { name: "Stripe", icon: "/tech-icon/stripe.svg" }
+    ]
   }
+  
 ]

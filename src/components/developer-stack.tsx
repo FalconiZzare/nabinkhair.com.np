@@ -2,6 +2,8 @@ import Image from "next/image";
 import { TechStacksList } from "@/config/developer-stack";
 import ShellWrapper from "./shell-wrapper";
 
+// Need to improve this and make it look like the icons are kept inside the gird so the whitespace can be seems to be utilized properly
+
 const DeveloperStack = () => {
   return (
     <ShellWrapper>
