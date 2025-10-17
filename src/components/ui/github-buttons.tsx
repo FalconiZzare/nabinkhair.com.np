@@ -1,9 +1,20 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+"use client";
+
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { DeveloperDetails } from "@/config/developer-details";
 
 export const GitHubButtons = () => {
+  const handleClick = () => {
+    window.open(DeveloperDetails.socialLinks[1].url, "_blank");
+  };
   return (
-    <Button variant="outline" size="icon" className="rounded-full">
+    <Button
+      variant="outline"
+      size="icon"
+      className="rounded-full"
+      onClick={handleClick}
+    >
       <Image
         src="/social/github.svg"
         alt="GitHub"
@@ -19,5 +30,5 @@ export const GitHubButtons = () => {
         className="hidden h-5 w-5 dark:inline"
       />
     </Button>
-  )
-}
+  );
+};
