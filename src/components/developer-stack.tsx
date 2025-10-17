@@ -8,7 +8,7 @@ const DeveloperStack = () => {
   return (
     <ShellWrapper>
       <div className="relative overflow-hidden p-2 space-y-3">
-        <header className="space-y-3">
+        <header className="space-y-2">
           <div className="space-y-1">
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
               My Skills
@@ -23,20 +23,26 @@ const DeveloperStack = () => {
           </p>
         </header>
 
-        <div className="grid grid-cols-4 sm:grid-cols-5 gap-3">
+        <div
+          className="grid gap-0 border-l border-t border-border"
+          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(80px, 1fr))" }}
+        >
           {TechStacksList.map(({ name, icon, hasDarkIcon }) => {
             const darkVariant = icon.replace(".svg", "-dark.svg");
 
             return (
-              <article key={name} className="flex flex-col items-center gap-2">
-                <span className="flex size-12 items-center justify-center rounded-lg border bg-muted/40">
+              <div
+                key={name}
+                className="group flex flex-col items-center justify-center aspect-square p-2 border-r border-b transition-all duration-200 cursor-pointer overflow-hidden"
+              >
+                <div className="flex items-center justify-center text-foreground/60 group-hover:text-foreground transition-colors duration-200">
                   <Image
                     src={icon}
                     alt={name}
                     width={20}
                     height={20}
                     title={name}
-                    className={`h-6 w-6 object-contain ${
+                    className={`size-4 aspect-square ${
                       hasDarkIcon ? "dark:hidden" : ""
                     }`}
                   />
@@ -47,16 +53,14 @@ const DeveloperStack = () => {
                       title={name}
                       width={20}
                       height={20}
-                      className="hidden h-6 w-6 object-contain dark:block"
+                      className="size-4 aspect-square hidden dark:block"
                     />
                   )}
-                </span>
-                <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                  <span className="truncate text-sm font-semibold text-foreground">
-                    {name}
-                  </span>
                 </div>
-              </article>
+                <p className="text-xs font-medium text-foreground/70 text-center group-hover:text-foreground transition-colors duration-200 mt-2">
+                  {name}
+                </p>
+              </div>
             );
           })}
         </div>

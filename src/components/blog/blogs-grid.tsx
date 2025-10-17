@@ -1,7 +1,4 @@
-import ShellWrapper from "@/components/shell-wrapper";
-import { ArrowUpRight } from "lucide-react";
-import { DeveloperDetails } from "@/config/developer-details";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
 import type { BlogPost } from "@/lib/markdown/mdx";
 import {
   BlogCard,
@@ -11,6 +8,10 @@ import {
   BlogCardImage,
   BlogCardTitle,
 } from "@/components/ui/blogs-card";
+import { DeveloperDetails } from "@/config/developer-details";
+import ShellWrapper from "@/components/shell-wrapper";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { ArrowUpRight } from "lucide-react";
 
 interface BlogsGridProps {
   posts: BlogPost[];
@@ -34,7 +35,7 @@ export const BlogsGrid = ({ posts, maxPosts }: BlogsGridProps) => {
                   alt={frontmatter.title}
                 />
                 <BlogCardContent className="space-y-2">
-                  <BlogCardTitle className="group-hover:underline group-hover:underline-offset-2">
+                  <BlogCardTitle className="group-hover:underline group-hover:underline-offset-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     {frontmatter.title}
                   </BlogCardTitle>
                   <BlogCardDescription>
@@ -52,8 +53,8 @@ export const BlogsGrid = ({ posts, maxPosts }: BlogsGridProps) => {
                         {DeveloperDetails.initials}
                       </AvatarFallback>
                     </Avatar>
-                    {/* <div className="flx flex-col items-start justify-start">
-                       <p className="text-sm font-medium text-foreground">
+                    <div className="flx flex-col items-start justify-start">
+                       <p className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                         {DeveloperDetails.name}
                       </p>
                       <time
@@ -69,7 +70,7 @@ export const BlogsGrid = ({ posts, maxPosts }: BlogsGridProps) => {
                           }
                         )}
                       </time>
-                     </div> */}
+                     </div>
                   </div>
                   <div className="flex gap-px items-center justify-center">
                     <span className="text-muted-foreground group-hover:text-primary transition-colors duration-500">
@@ -77,7 +78,7 @@ export const BlogsGrid = ({ posts, maxPosts }: BlogsGridProps) => {
                     </span>
                     <ArrowUpRight
                       size={16}
-                      className="text-muted-foreground group-hover:text-primary transition-colors duration-500"
+                      className="text-muted-foreground group-hover:text-primary transition-colors duration-300"
                     />
                   </div>
                 </BlogCardFooter>
