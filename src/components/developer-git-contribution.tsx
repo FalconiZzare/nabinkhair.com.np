@@ -1,0 +1,196 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import {
+    ContributionGraph,
+    ContributionGraphBlock,
+    ContributionGraphCalendar,
+    ContributionGraphFooter,
+    ContributionGraphLegend,
+    ContributionGraphTotalCount,
+    type Activity,
+} from "@/components/ui/contribution-graph";
+import { cn } from "@/lib/utils";
+import ShellWrapper from "@/components/shell-wrapper";
+
+const username = "nabinkhair42";
+const currentYear = new Date().getFullYear();
+
+const legendLevelClasses = [
+  "bg-[#ebedf0] dark:bg-[#161b22]",
+  "bg-[#9be9a8] dark:bg-[#0e4429]",
+  "bg-[#40c463] dark:bg-[#006d32]",
+  "bg-[#30a14e] dark:bg-[#26a641]",
+  "bg-[#216e39] dark:bg-[#39d353]",
+];
+
+type ContributionDay = Activity;
+
+type ContributionApiResponse = {
+  total?: Record<string, number>;
+  contributions?:
+    | ContributionDay[]
+    | Record<string, ContributionDay[]>
+    | undefined;
+};
+
+const fetchContributions = async () => {
+  const url = new URL(
+    `/v4/${username}`,
+    "https://github-contributions-api.jogruber.de"
+  );
+  url.searchParams.set("y", String(currentYear));
+
+  const response = await fetch(url.toString(), {
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to load contributions: ${response.status}`);
+  }
+
+  const json = (await response.json()) as ContributionApiResponse;
+  const yearKey = String(currentYear);
+
+  const normalizeContributions = () => {
+    if (Array.isArray(json.contributions)) {
+      return json.contributions.filter((day) =>
+        day.date.startsWith(`${yearKey}-`)
+      );
+    }
+
+    if (
+      json.contributions &&
+      typeof json.contributions === "object" &&
+      !Array.isArray(json.contributions)
+    ) {
+      const fromYear = json.contributions[yearKey];
+
+      if (Array.isArray(fromYear)) {
+        return fromYear;
+      }
+
+      return Object.values(json.contributions).flat();
+    }
+
+    return [] as ContributionDay[];
+  };
+
+  const contributions = normalizeContributions();
+
+  const total =
+    (json.total && typeof json.total[yearKey] === "number"
+      ? json.total[yearKey]
+      : undefined) ??
+    contributions.reduce((sum, activity) => sum + activity.count, 0);
+
+  return {
+    data: contributions,
+    total,
+  };
+};
+
+const DeveloperGitContribution = () => {
+  const [activities, setActivities] = useState<Activity[]>([]);
+  const [totalCount, setTotalCount] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let isActive = true;
+
+    const load = async () => {
+      try {
+        const { data, total } = await fetchContributions();
+
+        if (isActive) {
+          setActivities(data);
+          setTotalCount(total);
+        }
+      } catch (err) {
+        console.error("Error fetching GitHub contributions", err);
+
+        if (isActive) {
+          setError("Unable to load contribution activity right now.");
+          setActivities([]);
+        }
+      } finally {
+        if (isActive) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    void load();
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
+
+  if (isLoading) {
+    return (
+      <ShellWrapper>
+        <div className="bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)] border bg-muted h-[11.9rem]" />
+      </ShellWrapper>
+    );
+  }
+
+  if (error || activities.length === 0) {
+    return (
+      <div className="bg-[repeating-linear-gradient(-45deg,var(--color-destructive),var(--color-destructive)_1px,transparent_1px,transparent_6px)] border border-destructive bg-muted h-12 "/>
+    );
+  }
+
+  return (
+    <ShellWrapper>
+      <ContributionGraph
+        data={activities}
+        totalCount={totalCount}
+        className="p-2"
+      >
+        <ContributionGraphCalendar>
+          {({ activity, dayIndex, weekIndex }) => (
+            <ContributionGraphBlock
+              activity={activity}
+              className={cn(
+                'data-[level="0"]:fill-[#ebedf0] dark:data-[level="0"]:fill-[#161b22]',
+                'data-[level="1"]:fill-[#9be9a8] dark:data-[level="1"]:fill-[#0e4429]',
+                'data-[level="2"]:fill-[#40c463] dark:data-[level="2"]:fill-[#006d32]',
+                'data-[level="3"]:fill-[#30a14e] dark:data-[level="3"]:fill-[#26a641]',
+                'data-[level="4"]:fill-[#216e39] dark:data-[level="4"]:fill-[#39d353]'
+              )}
+              dayIndex={dayIndex}
+              weekIndex={weekIndex}
+            />
+          )}
+        </ContributionGraphCalendar>
+        <ContributionGraphFooter>
+          <ContributionGraphTotalCount />
+          <ContributionGraphLegend>
+            {({ level }) => (
+              <div
+                className="group relative flex h-3 w-3 items-center justify-center"
+                data-level={level}
+              >
+                <div
+                  className={cn(
+                    "h-full w-full rounded border border-border",
+                    legendLevelClasses[level] ?? legendLevelClasses[0]
+                  )}
+                />
+                <span className="-top-8 absolute hidden rounded bg-popover px-2 py-1 text-popover-foreground text-xs shadow-md group-hover:block">
+                  Level {level}
+                </span>
+              </div>
+            )}
+          </ContributionGraphLegend>
+        </ContributionGraphFooter>
+      </ContributionGraph>
+    </ShellWrapper>
+  );
+};
+
+export default DeveloperGitContribution;
