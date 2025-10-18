@@ -1,7 +1,7 @@
 import { Calendar, Clock, User } from "lucide-react";
-import Image from "next/image";
 import ShellWrapper from "@/components/shell-wrapper";
 import type { BlogFrontmatter } from "@/lib/markdown/mdx";
+import Image from "next/image";
 
 interface BlogHeaderProps {
   frontmatter: BlogFrontmatter;
@@ -49,14 +49,14 @@ export function BlogHeader({ frontmatter, readingTime }: BlogHeaderProps) {
 
       <ShellWrapper>
         {frontmatter.image && (
-          <div className="overflow-hidden bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)] rounded-md border bg-muted">
+          <div className="overflow-hidden bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)]">
             <Image
               src={frontmatter.image}
               width={1000}
               height={1000}
               alt={frontmatter.title}
               title={frontmatter.title}
-              className="max-h-96 mx-auto aspect-video rounded border"
+              className="max-h-96 mx-auto aspect-video border"
             />
           </div>
         )}

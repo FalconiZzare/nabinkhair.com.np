@@ -86,6 +86,7 @@ const DeveloperConnect = () => {
                 every new engagement.
               </p>
             </div>
+            <ShellWrapper>
             <div className="flex flex-wrap gap-2">
               {DeveloperDetails.email && (
                 <Button asChild>
@@ -108,6 +109,7 @@ const DeveloperConnect = () => {
                 </Button>
               )}
             </div>
+            </ShellWrapper>
           </div>
         </section>
       </ShellWrapper>

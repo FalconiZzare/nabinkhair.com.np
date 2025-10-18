@@ -64,7 +64,6 @@ export const ProjectsData: Projects[] = [
     title: "Pro MCP",
     tagline: "Registry of MCP Servers",
     liveLink: "https://promcp.nabinkhair.com.np",
-    repo: "https://github.com/nabinkhair42/pro-mcp",
     description: [
       "Over 4200+ MCP servers listed from around the world.",
       "Custom Server Listing Website with auto scraping of server information.",
