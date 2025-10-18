@@ -93,7 +93,7 @@ export const ExperienceData: Experience[] = [
     designation: "Web Developer",
     type: "Part-time",
     startDate: "03.2024",
-    endDate: "05.2024",
+    endDate: "05.2025",
     isCurrent: false,
     description: [
       "Developed strong backend for short videos sharing mobile application.",
