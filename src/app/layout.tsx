@@ -1,21 +1,23 @@
-import "./globals.css"
-import type { Metadata } from "next"
-import { Space_Grotesk } from "next/font/google"
-import { ThemeProvider } from "next-themes"
-import { DeveloperDetails } from "@/config/developer-details"
-import SiteHeader from "@/components/layouts/site-header"
-import SiteFooter from "@/components/layouts/site-footer"
+import "./globals.css";
+import SiteFooter from "@/components/layouts/site-footer";
+import SiteHeader from "@/components/layouts/site-header";
+import { DeveloperDetails } from "@/config/developer-details";
+import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
+import { Space_Grotesk } from "next/font/google";
 
 export const metadata: Metadata = {
   title: DeveloperDetails.seo.title,
   description: DeveloperDetails.seo.description,
   keywords: DeveloperDetails.seo.keywords,
   authors: [{ name: DeveloperDetails.name }],
-  creator: DeveloperDetails.name
-}
+  creator: DeveloperDetails.name,
+};
+
+const siteUrl = DeveloperDetails.portfolio.replace(/\/$/, "");
+metadata.metadataBase = new URL(siteUrl);
 
 // Open Graph and Twitter card metadata so social previews pick up the og image
-const siteUrl = DeveloperDetails.portfolio.replace(/\/$/, "");
 const ogImage = `${siteUrl}/og-image.png`;
 
 metadata.openGraph = {
@@ -28,29 +30,29 @@ metadata.openGraph = {
       url: ogImage,
       width: 1200,
       height: 630,
-      alt: `${DeveloperDetails.name} — Open Graph Image`
-    }
+      alt: `${DeveloperDetails.name} — Open Graph Image`,
+    },
   ],
   locale: "en_US",
-  type: "website"
+  type: "website",
 };
 
 metadata.twitter = {
   card: "summary_large_image",
   title: DeveloperDetails.seo.title,
   description: DeveloperDetails.seo.description,
-  images: [ogImage]
+  images: [ogImage],
 };
 
 const font = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-space-grotesk"
-})
+  variable: "--font-space-grotesk",
+});
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -68,5 +70,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

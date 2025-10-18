@@ -1,9 +1,9 @@
-import Image from "next/image"
-import { DeveloperDetails } from "@/config/developer-details"
-import ShellWrapper from "./shell-wrapper"
+import { DeveloperDetails } from "@/config/developer-details";
+import Image from "next/image";
+import ShellWrapper from "./shell-wrapper";
 
 const DeveloperIntro = () => {
-  const { name, designation, bio, avatar } = DeveloperDetails
+  const { name, designation, bio, avatar } = DeveloperDetails;
 
   return (
     <ShellWrapper>
@@ -30,7 +30,7 @@ const DeveloperIntro = () => {
         </div>
       </div>
     </ShellWrapper>
-  )
-}
+  );
+};
 
-export default DeveloperIntro
+export default DeveloperIntro;

@@ -10,7 +10,7 @@ export const NoMoreBlogs = () => {
             Ok Got it, you loved reading all of my blogs!
           </h2>
           <p className="text-base text-muted-foreground">
-            I need to speed up my writings, to make you happy. 
+            I need to speed up my writings, to make you happy.
           </p>
         </div>
       </div>

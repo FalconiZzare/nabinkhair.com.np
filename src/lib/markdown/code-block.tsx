@@ -1,6 +1,5 @@
-import { type BundledLanguage, codeToHtml } from "shiki";
 import { CopyButton } from "@/lib/markdown/copy-button";
-
+import { type BundledLanguage, codeToHtml } from "shiki";
 
 const THEMES = {
   light: "github-light-default",

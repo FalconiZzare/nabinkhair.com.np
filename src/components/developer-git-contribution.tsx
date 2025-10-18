@@ -1,17 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import ShellWrapper from "@/components/shell-wrapper";
 import {
-    ContributionGraph,
-    ContributionGraphBlock,
-    ContributionGraphCalendar,
-    ContributionGraphFooter,
-    ContributionGraphLegend,
-    ContributionGraphTotalCount,
-    type Activity,
+  type Activity,
+  ContributionGraph,
+  ContributionGraphBlock,
+  ContributionGraphCalendar,
+  ContributionGraphFooter,
+  ContributionGraphLegend,
+  ContributionGraphTotalCount,
 } from "@/components/ui/contribution-graph";
 import { cn } from "@/lib/utils";
-import ShellWrapper from "@/components/shell-wrapper";
+import { useEffect, useState } from "react";
 
 const username = "nabinkhair42";
 const currentYear = new Date().getFullYear();
@@ -28,17 +28,11 @@ type ContributionDay = Activity;
 
 type ContributionApiResponse = {
   total?: Record<string, number>;
-  contributions?:
-    | ContributionDay[]
-    | Record<string, ContributionDay[]>
-    | undefined;
+  contributions?: ContributionDay[] | Record<string, ContributionDay[]> | undefined;
 };
 
 const fetchContributions = async () => {
-  const url = new URL(
-    `/v4/${username}`,
-    "https://github-contributions-api.jogruber.de"
-  );
+  const url = new URL(`/v4/${username}`, "https://github-contributions-api.jogruber.de");
   url.searchParams.set("y", String(currentYear));
 
   const response = await fetch(url.toString(), {
@@ -56,9 +50,7 @@ const fetchContributions = async () => {
 
   const normalizeContributions = () => {
     if (Array.isArray(json.contributions)) {
-      return json.contributions.filter((day) =>
-        day.date.startsWith(`${yearKey}-`)
-      );
+      return json.contributions.filter((day) => day.date.startsWith(`${yearKey}-`));
     }
 
     if (
@@ -81,9 +73,7 @@ const fetchContributions = async () => {
   const contributions = normalizeContributions();
 
   const total =
-    (json.total && typeof json.total[yearKey] === "number"
-      ? json.total[yearKey]
-      : undefined) ??
+    (json.total && typeof json.total[yearKey] === "number" ? json.total[yearKey] : undefined) ??
     contributions.reduce((sum, activity) => sum + activity.count, 0);
 
   return {
@@ -140,17 +130,13 @@ const DeveloperGitContribution = () => {
 
   if (error || activities.length === 0) {
     return (
-      <div className="bg-[repeating-linear-gradient(-45deg,var(--color-destructive),var(--color-destructive)_1px,transparent_1px,transparent_6px)] border border-destructive bg-muted h-12 "/>
+      <div className="bg-[repeating-linear-gradient(-45deg,var(--color-destructive),var(--color-destructive)_1px,transparent_1px,transparent_6px)] border border-destructive bg-muted h-12 " />
     );
   }
 
   return (
     <ShellWrapper>
-      <ContributionGraph
-        data={activities}
-        totalCount={totalCount}
-        className="p-2"
-      >
+      <ContributionGraph data={activities} totalCount={totalCount} className="p-2">
         <ContributionGraphCalendar>
           {({ activity, dayIndex, weekIndex }) => (
             <ContributionGraphBlock

@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { ArrowUpRight } from "lucide-react"
-import Link from "next/link"
-import { GitHubButtons } from "@/components/ui/github-buttons"
-import ThemeSwitcher from "@/components/ui/theme-switcher"
+import { GitHubButtons } from "@/components/ui/github-buttons";
+import ThemeSwitcher from "@/components/ui/theme-switcher";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 const SiteHeader = () => {
   return (
@@ -13,15 +13,19 @@ const SiteHeader = () => {
           <span className="font-bold inline-block text-lg">devn</span>
         </Link>
         <div className="flex items-center space-x-2">
-            <Link href="/blog" className="flex items-center justify-center text-muted-foreground hover:text-primary transition-colors duration-500">blog
-              <ArrowUpRight size={16}/>
-            </Link>
+          <Link
+            href="/blog"
+            className="flex items-center justify-center text-muted-foreground hover:text-primary transition-colors duration-500"
+          >
+            blog
+            <ArrowUpRight size={16} />
+          </Link>
           <GitHubButtons />
           <ThemeSwitcher />
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default SiteHeader
+export default SiteHeader;

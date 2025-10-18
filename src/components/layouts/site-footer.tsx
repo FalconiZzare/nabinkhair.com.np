@@ -1,6 +1,6 @@
-import { ArrowUpRight } from "lucide-react"
-import Link from "next/link"
-import { DeveloperDetails } from "@/config/developer-details"
+import { DeveloperDetails } from "@/config/developer-details";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 const SiteFooter = () => {
   return (
@@ -22,7 +22,7 @@ const SiteFooter = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default SiteFooter
+export default SiteFooter;

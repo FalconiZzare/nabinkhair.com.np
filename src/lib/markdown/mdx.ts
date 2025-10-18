@@ -1,10 +1,10 @@
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
-import readingTime from 'reading-time';
-import remarkGfm from 'remark-gfm';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import readingTime from "reading-time";
+import remarkGfm from "remark-gfm";
 
-const contentDirectory = path.join(process.cwd(), '/blog-content');
+const contentDirectory = path.join(process.cwd(), "/blog-content");
 
 export interface BlogFrontmatter {
   title: string;
@@ -38,11 +38,9 @@ export function getAllBlogSlugs(): string[] {
   if (!fs.existsSync(contentDirectory)) {
     return [];
   }
-  
+
   const files = fs.readdirSync(contentDirectory);
-  return files
-    .filter((file) => file.endsWith('.mdx'))
-    .map((file) => file.replace(/\.mdx$/, ''));
+  return files.filter((file) => file.endsWith(".mdx")).map((file) => file.replace(/\.mdx$/, ""));
 }
 
 /**
@@ -51,16 +49,16 @@ export function getAllBlogSlugs(): string[] {
 export function getBlogPostBySlug(slug: string): BlogPost | null {
   try {
     const filePath = path.join(contentDirectory, `${slug}.mdx`);
-    
+
     if (!fs.existsSync(filePath)) {
       return null;
     }
-    
-    const fileContents = fs.readFileSync(filePath, 'utf8');
+
+    const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
-    
+
     const readingTimeResult = readingTime(content);
-    
+
     return {
       slug,
       frontmatter: data as BlogFrontmatter,
@@ -87,6 +85,6 @@ export function getAllBlogPosts(): BlogPost[] {
       const dateB = new Date(b.frontmatter.date).getTime();
       return dateB - dateA; // Sort by date descending
     });
-  
+
   return posts;
 }

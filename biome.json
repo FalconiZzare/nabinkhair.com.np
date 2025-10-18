@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
@@ -23,8 +23,7 @@
         "noRedundantRoles": "off"
       },
       "suspicious": {
-        "noArrayIndexKey": "off",
-        "noUnknownAtRules": "off"
+        "noArrayIndexKey": "off"
       },
       "complexity": {
         "noStaticOnlyClass": "off"
@@ -37,25 +36,17 @@
       }
     }
   },
-  "assist": { "actions": { "source": { "organizeImports": "on" } } },
+  "organizeImports": {
+    "enabled": true
+  },
   "javascript": {
     "formatter": {
       "quoteStyle": "double",
-      "semicolons": "asNeeded",
-      "trailingCommas": "none"
+      "semicolons": "always",
+      "trailingCommas": "es5"
     }
   },
   "files": {
-    "ignoreUnknown": true,
-    "includes": [
-      "**",
-      "!**/node_modules",
-      "!**/dist",
-      "!**/.next",
-      "!**/out",
-      "!**/build",
-      "!**/public",
-      "!**/.vscode"
-    ]
+    "ignore": ["node_modules", ".next", "dist", "out", "build", "prisma/migrations", "*.config.js"]
   }
 }

@@ -1,8 +1,8 @@
 export interface TechStack {
-  name: string
-  icon: string
-  hasDarkIcon?: boolean
-  link?: string
+  name: string;
+  icon: string;
+  hasDarkIcon?: boolean;
+  link?: string;
 }
 export const TechStacksList: TechStack[] = [
   { name: "AWS", icon: "/tech-icon/aws.svg", hasDarkIcon: true },
@@ -25,7 +25,7 @@ export const TechStacksList: TechStack[] = [
   { name: "React.js", icon: "/tech-icon/react.svg" },
   {
     name: "R. Query",
-    icon: "/tech-icon/reactquery.svg"
+    icon: "/tech-icon/reactquery.svg",
   },
   { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
   { name: "Tailwind", icon: "/tech-icon/tailwindcss.svg" },
@@ -33,5 +33,5 @@ export const TechStacksList: TechStack[] = [
   { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
   { name: "Vite", icon: "/tech-icon/vitejs.svg" },
   { name: "Zod", icon: "/tech-icon/zod.svg" },
-  { name: "Zustand", icon: "/tech-icon/zustand.svg" }
-]
+  { name: "Zustand", icon: "/tech-icon/zustand.svg" },
+];

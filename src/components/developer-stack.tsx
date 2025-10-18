@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { TechStacksList } from "@/config/developer-stack";
+import Image from "next/image";
 import ShellWrapper from "./shell-wrapper";
-
-// Need to improve this and make it look like the icons are kept inside the gird so the whitespace can be seems to be utilized properly
 
 const DeveloperStack = () => {
   return (
@@ -10,16 +8,14 @@ const DeveloperStack = () => {
       <div className="relative overflow-hidden p-2 space-y-3">
         <header className="space-y-2">
           <div className="space-y-1">
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
-              My Skills
-            </p>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">My Skills</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
               The tools I reach for every day
             </h1>
           </div>
           <p className="text-base leading-relaxed text-justify text-muted-foreground">
-            A curated mix of frameworks, runtimes, and services that help me
-            craft reliable, performant user experiences across the stack.
+            A curated mix of frameworks, runtimes, and services that help me craft reliable,
+            performant user experiences across the stack.
           </p>
         </header>
 
@@ -42,9 +38,9 @@ const DeveloperStack = () => {
                     width={20}
                     height={20}
                     title={name}
-                    className={`size-4 aspect-square ${
-                      hasDarkIcon ? "dark:hidden" : ""
-                    }`}
+                    className={
+                      hasDarkIcon ? "size-4 aspect-square dark:hidden" : "size-4 aspect-square"
+                    }
                   />
                   {hasDarkIcon && (
                     <Image

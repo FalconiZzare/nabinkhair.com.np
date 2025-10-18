@@ -1,7 +1,7 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
-import { cn } from "@/lib/utils";
 
 interface BlogCardProps extends React.HTMLAttributes<HTMLDivElement> {
   link: string;
@@ -29,10 +29,7 @@ const BlogCardImage = React.forwardRef<
 >(({ className, alt, src, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      "relative h-[190px] w-full rounded-t overflow-hidden mb-3",
-      className
-    )}
+    className={cn("relative h-[190px] w-full rounded-t overflow-hidden mb-3", className)}
     {...props}
   >
     <Image
@@ -53,10 +50,7 @@ const BlogCardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn(
-      "text-lg font-semibold leading-tight line-clamp-2",
-      className
-    )}
+    className={cn("text-lg font-semibold leading-tight line-clamp-2", className)}
     {...props}
   />
 ));
@@ -74,27 +68,23 @@ const BlogCardDescription = React.forwardRef<
 ));
 BlogCardDescription.displayName = "BlogCardDescription";
 
-const BlogCardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("px-3", className)} {...props} />
-));
+const BlogCardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => <div ref={ref} className={cn("px-3", className)} {...props} />
+);
 BlogCardContent.displayName = "BlogCardContent";
 
-const BlogCardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "flex items-center justify-between px-3 py-2 text-sm text-muted-foreground",
-      className
-    )}
-    {...props}
-  />
-));
+const BlogCardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        "flex items-center justify-between px-3 py-2 text-sm text-muted-foreground",
+        className
+      )}
+      {...props}
+    />
+  )
+);
 BlogCardFooter.displayName = "BlogCardFooter";
 
 export {

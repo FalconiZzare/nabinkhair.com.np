@@ -1,13 +1,13 @@
-import type { TechStack } from "@/config/developer-stack"
+import type { TechStack } from "@/config/developer-stack";
 
 interface Projects {
-  icon: string
-  title: string
-  tagline: string
-  description: Array<string>
-  liveLink?: string
-  repo?: string
-  techStack: Array<TechStack>
+  icon: string;
+  title: string;
+  tagline: string;
+  description: Array<string>;
+  liveLink?: string;
+  repo?: string;
+  techStack: Array<TechStack>;
 }
 
 export const ProjectsData: Projects[] = [
@@ -20,7 +20,7 @@ export const ProjectsData: Projects[] = [
       "JWT Based Authentication and Authorization.",
       "User Management Dashboard",
       "Image Uploading with Uploadthing",
-      "Builtin Vercel Deployment"
+      "Builtin Vercel Deployment",
     ],
     liveLink: "https://fastly.nabinkhair.com.np",
     repo: "https://github.com/nabinkhair42/fastly",
@@ -32,8 +32,8 @@ export const ProjectsData: Projects[] = [
       { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
       { name: "React Query", icon: "/tech-icon/reactquery.svg" },
       { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
-      { name: "Zod", icon: "/tech-icon/zod.svg" }
-    ]
+      { name: "Zod", icon: "/tech-icon/zod.svg" },
+    ],
   },
   {
     icon: "/projects/flow-mint.png",
@@ -43,7 +43,7 @@ export const ProjectsData: Projects[] = [
       "A powerful diagramming tool for understanding and visualizing complex ideas.",
       "Create diagrams from simple text prompts using Gemini AI",
       "Export diagrams in multiple formats including PNG, SVG",
-      "User authentication and management with JWT"
+      "User authentication and management with JWT",
     ],
     liveLink: "https://flowmint.nabinkhair.com.np",
     repo: "https://github.com/nabinkhair42/flowmint",
@@ -56,8 +56,8 @@ export const ProjectsData: Projects[] = [
       { name: "React Query", icon: "/tech-icon/reactquery.svg" },
       { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
       { name: "Stripe", icon: "/tech-icon/stripe.svg" },
-      { name: "Zod", icon: "/tech-icon/zod.svg" }
-    ]
+      { name: "Zod", icon: "/tech-icon/zod.svg" },
+    ],
   },
   {
     icon: "/projects/pro-mcp.svg",
@@ -78,8 +78,7 @@ export const ProjectsData: Projects[] = [
       { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
       { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
       { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
-
-    ]
+    ],
   },
   {
     icon: "/projects/nepali-educate.png",
@@ -89,14 +88,14 @@ export const ProjectsData: Projects[] = [
       "An online learning platform offering a high quality study notes for students of grade  11 and 12",
       "User-friendly interface for easy navigation and access to study materials.",
       "Trusted by over 50,000 students across Nepal.",
-      "Over 100k monthly visitors"
+      "Over 100k monthly visitors",
     ],
     liveLink: "https://nepalieducate.com",
     techStack: [
       { name: "Jquery", icon: "/tech-icon/jquery.svg" },
       { name: "Blogger", icon: "/tech-icon/blogger.svg" },
-      { name: "Canva", icon: "/tech-icon/canva.svg" }
-    ]
+      { name: "Canva", icon: "/tech-icon/canva.svg" },
+    ],
   },
 
   {
@@ -108,7 +107,7 @@ export const ProjectsData: Projects[] = [
       "Work on writing and designing the Backend of the Platform",
       "Hosted and Deployed entire services on AWS and Cloudflare",
       "Tested and developed APIs using Postman",
-      "Collaborated with cross-functional teams to define, design, and ship new features"
+      "Collaborated with cross-functional teams to define, design, and ship new features",
     ],
     techStack: [
       { name: "Node.js", icon: "/tech-icon/nodejs.svg" },
@@ -116,8 +115,8 @@ export const ProjectsData: Projects[] = [
       { name: "MongoDB", icon: "/tech-icon/mongodb.svg" },
       { name: "AWS", icon: "/tech-icon/aws.svg", hasDarkIcon: true },
       { name: "Cloudflare", icon: "/tech-icon/cloudflare.svg" },
-      { name: "Postman", icon: "/tech-icon/postman.svg" }
-    ]
+      { name: "Postman", icon: "/tech-icon/postman.svg" },
+    ],
   },
   {
     icon: "/projects/vtheme.svg",
@@ -128,12 +127,12 @@ export const ProjectsData: Projects[] = [
     description: [
       "Over 1200+ active users worldwide.",
       "Carefully crafted colors that enhance coding experience and reduce eye strain.",
-      "A professionally designed color theme based on advanced color theory principles."
+      "A professionally designed color theme based on advanced color theory principles.",
     ],
     techStack: [
       { name: "JSON", icon: "/tech-icon/json.svg" },
-      { name: "VS Code", icon: "/tech-icon/vscode.svg" }
-    ]
+      { name: "VS Code", icon: "/tech-icon/vscode.svg" },
+    ],
   },
   {
     icon: "/tech-icon/nextjs.svg",
@@ -147,8 +146,7 @@ export const ProjectsData: Projects[] = [
       { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
       { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
       { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
-      { name: "Stripe", icon: "/tech-icon/stripe.svg" }
-    ]
-  }
-  
-]
+      { name: "Stripe", icon: "/tech-icon/stripe.svg" },
+    ],
+  },
+];

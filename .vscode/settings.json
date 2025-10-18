@@ -1,7 +1,10 @@
 {
   "editor.codeActionsOnSave": {
-    "source.addMissingImports": "always",
-    "source.removeUnusedImports": "always"
+    "source.addMissingImports": "explicit",
+    "source.removeUnusedImports": "explicit",
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.fixAll.eslint": "explicit"
   },
   "typescript.autoClosingTags": true,
   "typescript.suggest.autoImports": true,
@@ -15,7 +18,7 @@
   "path-intellisense.mappings": {
     "@": "${workspaceFolder}/src"
   },
-  
+
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifier": "non-relative",
 

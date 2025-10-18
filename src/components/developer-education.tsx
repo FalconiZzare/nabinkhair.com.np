@@ -1,10 +1,10 @@
-import { GraduationCap, MapPin } from "lucide-react"
-import Image from "next/image"
-import { DeveloperDetails } from "@/config/developer-details"
-import ShellWrapper from "./shell-wrapper"
+import ShellWrapper from "@/components/shell-wrapper";
+import { DeveloperDetails } from "@/config/developer-details";
+import { GraduationCap, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const DeveloperEducation = () => {
-  const educationData = DeveloperDetails.education
+  const educationData = DeveloperDetails.education;
 
   return (
     <ShellWrapper>
@@ -57,7 +57,7 @@ const DeveloperEducation = () => {
         </div>
       </div>
     </ShellWrapper>
-  )
-}
+  );
+};
 
-export default DeveloperEducation
+export default DeveloperEducation;

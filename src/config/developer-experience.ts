@@ -1,15 +1,15 @@
-import type { TechStack } from "@/config/developer-stack"
+import type { TechStack } from "@/config/developer-stack";
 
 interface Experience {
-  company: string
-  logo: string
-  designation: string
-  type: "Full-time" | "Part-time" | "Internship" | "Freelance" | "Contract"
-  startDate: string
-  endDate: string
-  description: string[]
-  skills: Array<TechStack>
-  isCurrent: boolean
+  company: string;
+  logo: string;
+  designation: string;
+  type: "Full-time" | "Part-time" | "Internship" | "Freelance" | "Contract";
+  startDate: string;
+  endDate: string;
+  description: string[];
+  skills: Array<TechStack>;
+  isCurrent: boolean;
 }
 
 export const ExperienceData: Experience[] = [
@@ -23,7 +23,7 @@ export const ExperienceData: Experience[] = [
     isCurrent: true,
     description: [
       "Developed AI-powered healthcare dashboard and playground, enhancing doctor and patient interactions.",
-      "Implemented robust authentication and authorization mechanisms using Clerk"
+      "Implemented robust authentication and authorization mechanisms using Clerk",
     ],
     skills: [
       { name: "Clerk", icon: "/tech-icon/clerk.svg" },
@@ -35,8 +35,8 @@ export const ExperienceData: Experience[] = [
       { name: "React Query", icon: "/tech-icon/reactquery.svg" },
       { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
       { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
-      { name: "Zod", icon: "/tech-icon/zod.svg" }
-    ]
+      { name: "Zod", icon: "/tech-icon/zod.svg" },
+    ],
   },
   {
     company: "Truly Care",
@@ -49,21 +49,21 @@ export const ExperienceData: Experience[] = [
     description: [
       "Improved the design pattern of the existing codebase for better maintainability and scalability.",
       "Developed performance optimized onboarding forms with better user interaction.",
-      "Collaborated with backend developers to integrate RESTful APIs and ensure seamless functionality."
+      "Collaborated with backend developers to integrate RESTful APIs and ensure seamless functionality.",
     ],
     skills: [
       { name: "Clerk", icon: "/tech-icon/clerk.svg" },
       {
         name: "Express.js",
         icon: "/tech-icon/expressjs.svg",
-        hasDarkIcon: true
+        hasDarkIcon: true,
       },
       { name: "Postman", icon: "/tech-icon/postman.svg" },
       { name: "React.js", icon: "/tech-icon/react.svg" },
       { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
       { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
-      { name: "Zod", icon: "/tech-icon/zod.svg" }
-    ]
+      { name: "Zod", icon: "/tech-icon/zod.svg" },
+    ],
   },
   {
     company: "FinFox",
@@ -75,7 +75,7 @@ export const ExperienceData: Experience[] = [
     isCurrent: false,
     description: [
       "Led the frontend development and UI/UX design for a fintech SaaS platform, enhancing user experience and engagement.",
-      "Worked closely with backend developers to integrate APIs and ensure seamless functionality."
+      "Worked closely with backend developers to integrate APIs and ensure seamless functionality.",
     ],
     skills: [
       { name: "Figma", icon: "/tech-icon/figma.svg" },
@@ -83,8 +83,8 @@ export const ExperienceData: Experience[] = [
       { name: "React.js", icon: "/tech-icon/react.svg" },
       { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
       { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
-      { name: "TypeScript", icon: "/tech-icon/typescript.svg" }
-    ]
+      { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
+    ],
   },
 
   {
@@ -99,7 +99,7 @@ export const ExperienceData: Experience[] = [
       "Developed strong backend for short videos sharing mobile application.",
       "Improved webapp performance and improved SEO using best practices.",
       "Worked on multiple web development projects for clients with diverse requirements.",
-      "Designed UI/UX mockups and prototypes multiple mobile and web applications."
+      "Designed UI/UX mockups and prototypes multiple mobile and web applications.",
     ],
     skills: [
       { name: "AWS", icon: "/tech-icon/aws.svg", hasDarkIcon: true },
@@ -107,7 +107,7 @@ export const ExperienceData: Experience[] = [
       {
         name: "Express.js",
         icon: "/tech-icon/expressjs.svg",
-        hasDarkIcon: true
+        hasDarkIcon: true,
       },
 
       { name: "Figma", icon: "/tech-icon/figma.svg" },
@@ -119,7 +119,7 @@ export const ExperienceData: Experience[] = [
       { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
       { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
       { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
-      { name: "Zod", icon: "/tech-icon/zod.svg" }
-    ]
-  }
-]
+      { name: "Zod", icon: "/tech-icon/zod.svg" },
+    ],
+  },
+];

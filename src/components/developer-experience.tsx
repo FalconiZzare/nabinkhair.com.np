@@ -1,8 +1,8 @@
-import { DotIcon, PlusIcon } from "lucide-react"
-import Image from "next/image"
-import StackBadge from "@/components/ui/stack-badge"
-import { ExperienceData } from "@/config/developer-experience"
-import ShellWrapper from "./shell-wrapper"
+import ShellWrapper from "@/components/shell-wrapper";
+import StackBadge from "@/components/ui/stack-badge";
+import { ExperienceData } from "@/config/developer-experience";
+import { DotIcon, PlusIcon } from "lucide-react";
+import Image from "next/image";
 
 const DeveloperExperience = () => {
   return (
@@ -91,7 +91,7 @@ const DeveloperExperience = () => {
         </div>
       </div>
     </ShellWrapper>
-  )
-}
+  );
+};
 
-export default DeveloperExperience
+export default DeveloperExperience;
