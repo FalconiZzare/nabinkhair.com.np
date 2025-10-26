@@ -18,7 +18,7 @@ export const ExperienceData: Experience[] = [
     logo: "/company/tulio-health.svg",
     designation: "Software Engineer",
     type: "Part-time",
-    startDate: "08.2023",
+    startDate: "08.2025",
     endDate: "Present",
     isCurrent: true,
     description: [
@@ -43,8 +43,8 @@ export const ExperienceData: Experience[] = [
     logo: "/company/truly-care.webp",
     designation: "Frontend Developer",
     type: "Part-time",
-    startDate: "06.2023",
-    endDate: "08.2023",
+    startDate: "06.2025",
+    endDate: "08.2025",
     isCurrent: false,
     description: [
       "Improved the design pattern of the existing codebase for better maintainability and scalability.",
