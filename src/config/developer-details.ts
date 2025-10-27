@@ -40,10 +40,10 @@ export interface DeveloperConfig {
 export const DeveloperDetails: DeveloperConfig = {
   name: "Nabin Khair",
   initials: "NK",
-  designation: "Frontend Developer",
+  designation: "Fullstack Developer",
   portfolio: "https://nabinkhair.com.np",
   email: "nabinkhair12@gmail.com",
-  bio: "Hello, World! I am Nabin Khair, frontend developer from Nepal with more than 2 years of experience in web development. I love to create beautiful, functional, and user-friendly websites and applications.",
+  bio: "Hi — I'm Nabin Khair, a fullstack developer from Nepal with 2+ years of experience building performant, accessible web applications. I specialize in React, Next.js and TypeScript, and I focus on creating maintainable code, thoughtful UX, and reliable backends.",
   avatar: "/nabin_khair.webp",
   resume: "https://nabinkhair.com.np/nabin_khair.pdf",
   socialLinks: [
