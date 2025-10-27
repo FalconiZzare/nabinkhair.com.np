@@ -32,7 +32,7 @@ const DeveloperProjects = () => {
                       alt={projects.title}
                       width={100}
                       height={100}
-                      className="h-8 w-8 mt-1 rounded  object-contain"
+                      className="h-8 w-8 mt-1 rounded object-contain"
                     />
                   </div>
                   <div className="space-y-1 pl-3">

@@ -14,7 +14,7 @@ const DeveloperIntro = () => {
             alt={name}
             width={1000}
             height={1000}
-            className="h-28 w-28 md:h-32 md:w-32 md:mt-2.5 flex-shrink-0 rounded-md border object-cover shadow-md"
+            className="h-28 w-28 md:h-32 md:w-32 md:mt-2.5 flex-shrink-0 rounded border object-cover shadow-md"
           />
           <div className="space-y-2">
             <div className="space-y-1">

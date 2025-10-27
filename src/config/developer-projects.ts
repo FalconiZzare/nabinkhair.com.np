@@ -12,26 +12,26 @@ interface Projects {
 
 export const ProjectsData: Projects[] = [
   {
-     icon: "/projects/better-form.svg",
-  title: "Better Form",
-  tagline: "DX-First Dynamic Form Builder for React & Next.js",
-  description: [
-    "A next-generation developer-first dynamic form builder for React and Next.js",
-    "Build powerful forms with drag & drop, live preview, and code export functionality",
-    "Type-safe form building with TypeScript, Zod validation, and React Hook Form integration",
-    "Beautiful UI built with shadcn/ui components and Tailwind CSS"
-  ],
-  liveLink: "https://better-form.nabinkhair.com.np",
-  // repo: "https://github.com/nabinkhair42/better-form",
-  techStack: [
-    { name: "Next.js", icon: "/tech-icon/nextjs.svg", hasDarkIcon: true },
-    { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
-    { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
-    { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
-    { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
-    { name: "Zod", icon: "/tech-icon/zod.svg" },
-    { name: "React Hook Form", icon: "/tech-icon/react-hook-form.svg" }
-  ]
+    icon: "/projects/better-form.svg",
+    title: "Better Form",
+    tagline: "DX-First Dynamic Form Builder for React & Next.js",
+    description: [
+      "A next-generation developer-first dynamic form builder for React and Next.js",
+      "Build powerful forms with drag & drop, live preview, and code export functionality",
+      "Type-safe form building with TypeScript, Zod validation, and React Hook Form integration",
+      "Beautiful UI built with shadcn/ui components and Tailwind CSS",
+    ],
+    liveLink: "https://better-form.nabinkhair.com.np",
+    // repo: "https://github.com/nabinkhair42/better-form",
+    techStack: [
+      { name: "Next.js", icon: "/tech-icon/nextjs.svg", hasDarkIcon: true },
+      { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
+      { name: "Tailwind CSS", icon: "/tech-icon/tailwindcss.svg" },
+      { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
+      { name: "shadcn/ui", icon: "/tech-icon/shadcnui.svg", hasDarkIcon: true },
+      { name: "Zod", icon: "/tech-icon/zod.svg" },
+      { name: "React Hook Form", icon: "/tech-icon/react-hook-form.svg" },
+    ],
   },
   {
     icon: "/projects/fastly.png",

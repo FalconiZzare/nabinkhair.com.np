@@ -30,7 +30,7 @@ metadata.openGraph = {
       url: ogImage,
       width: 1200,
       height: 630,
-      alt: `${DeveloperDetails.name} — Open Graph Image`,
+      alt: `${DeveloperDetails.name} | Open Graph Image`,
     },
   ],
   locale: "en_US",

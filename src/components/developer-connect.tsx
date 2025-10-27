@@ -20,7 +20,7 @@ const DeveloperConnect = () => {
               </h1>
             </div>
             <p className="text-base leading-relaxed text-justify text-muted-foreground">
-              Pick the channel that fits best — every link here stays in sync with my latest work.
+              Pick the channel that fits best every link here stays in sync with my latest work.
             </p>
           </header>
 

@@ -1,6 +1,6 @@
-# Nabin Khair — Portfolio (nabinkhair.com.np)
+# Nabin Khair | Portfolio (nabinkhair.com.np)
 
-> Portfolio & blog of Nabin Khair — full-stack/front-end developer (Next.js, TypeScript, React). Guidance for AI assistants and agents consuming this site.  
+> Portfolio & blog of Nabin Khair | full-stack/front-end developer (Next.js, TypeScript, React). Guidance for AI assistants and agents consuming this site.
 > Maintainer: Nabin Khair · Contact: https://www.nabinkhair.com.np · Updated: 2025-10-16
 
 ## Quick Facts
@@ -31,7 +31,7 @@
 ## Content & Licensing
 - Blog posts are written by Nabin Khair unless stated otherwise.
 - Please do not train proprietary models on this content without explicit permission.
-- Cite `Nabin Khair — nabinkhair.com.np` when referencing material.
+- Cite `Nabin Khair - nabinkhair.com.np` when referencing material.
 
 ## Change Log
 - 2025-10-16: Expanded assistant guidelines, added key URLs and contact policy.

@@ -43,7 +43,7 @@ export const DeveloperDetails: DeveloperConfig = {
   designation: "Fullstack Developer",
   portfolio: "https://nabinkhair.com.np",
   email: "nabinkhair12@gmail.com",
-  bio: "Hi — I'm Nabin Khair, a fullstack developer from Nepal with 2+ years of experience building performant, accessible web applications. I specialize in React, Next.js and TypeScript, and I focus on creating maintainable code, thoughtful UX, and reliable backends.",
+  bio: "Hi World, I'm Nabin Khair, a fullstack developer from Nepal with 2+ years of experience building performant, accessible web applications. I specialize in React, Next.js and TypeScript, and I focus on creating maintainable code, thoughtful UX, and reliable backends.",
   avatar: "/nabin_khair.webp",
   resume: "https://nabinkhair.com.np/nabin_khair.pdf",
   socialLinks: [
@@ -81,8 +81,8 @@ export const DeveloperDetails: DeveloperConfig = {
     country: "Nepal",
   },
   seo: {
-    title: "Nabin Khair — Frontend Developer",
-    description: "Nabin Khair — Frontend developer building accessible, high-performance web apps.",
+    title: "Nabin Khair | Frontend Developer",
+    description: "Nabin Khair | Frontend developer building accessible, high-performance web apps.",
     keywords: ["frontend", "developer", "react", "nextjs", "typescript"],
   },
   education: [
