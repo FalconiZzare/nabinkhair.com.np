@@ -1,6 +1,6 @@
-import { DeveloperDetails } from "@/config/developer-details";
+import { DeveloperDetails } from "@/dev-constants/details";
 import Image from "next/image";
-import ShellWrapper from "./shell-wrapper";
+import ShellWrapper from "../layouts/shell-wrapper";
 
 const DeveloperIntro = () => {
   const { name, designation, bio, avatar } = DeveloperDetails;

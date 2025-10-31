@@ -1,6 +1,6 @@
-import ShellWrapper from "@/components/shell-wrapper";
-import StackBadge from "@/components/ui/stack-badge";
-import { ExperienceData } from "@/config/developer-experience";
+import ShellWrapper from "@/components/layouts/shell-wrapper";
+import StackBadge from "@/components/ui/extended/stack-badge";
+import { ExperienceData } from "@/dev-constants/experience";
 import { DotIcon, PlusIcon } from "lucide-react";
 import Image from "next/image";
 

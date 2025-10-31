@@ -1,5 +1,5 @@
-import ShellWrapper from "@/components/shell-wrapper";
-import { DeveloperDetails } from "@/config/developer-details";
+import ShellWrapper from "@/components/layouts/shell-wrapper";
+import { DeveloperDetails } from "@/dev-constants/details";
 
 export function BlogIntroduction() {
   const { name, designation } = DeveloperDetails;

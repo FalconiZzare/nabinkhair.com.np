@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { DeveloperDetails } from "@/config/developer-details";
+import { DeveloperDetails } from "@/dev-constants/details";
 import Image from "next/image";
 
 export const GitHubButtons = () => {

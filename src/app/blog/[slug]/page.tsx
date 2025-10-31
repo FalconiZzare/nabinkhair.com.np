@@ -1,6 +1,6 @@
 import { BlogHeader } from "@/components/blog/blog-header";
-import PageShellWrapper from "@/components/page-shell";
-import ShellWrapper from "@/components/shell-wrapper";
+import PageShellWrapper from "@/components/layouts/page-shell";
+import ShellWrapper from "@/components/layouts/shell-wrapper";
 import { getAllBlogSlugs, getBlogPostBySlug, mdxOptions } from "@/lib/markdown/mdx";
 import { useMDXComponents } from "@/lib/markdown/mdx-components";
 import { MDXRemote } from "next-mdx-remote/rsc";

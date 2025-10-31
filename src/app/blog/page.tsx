@@ -1,5 +1,5 @@
 import { BlogIntroduction, BlogsGrid, NoMoreBlogs } from "@/components/blog";
-import PageShellWrapper from "@/components/page-shell";
+import PageShellWrapper from "@/components/layouts/page-shell";
 import { getAllBlogPosts } from "@/lib/markdown";
 
 const BlogPage = () => {

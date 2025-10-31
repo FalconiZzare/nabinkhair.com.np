@@ -28,7 +28,7 @@ function isCodeChild(node: unknown): node is CodeChild {
   );
 }
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
+export function makeMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
       <h1
@@ -46,7 +46,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
             .replace(/\?/g, "")
             .toLowerCase()}
           className={cn(
-            "font-heading [&+]*:[code]:text-xl mt-10 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16 [&+.steps]:!mt-0 [&+.steps>h3]:!mt-4 [&+h3]:!mt-6 [&+p]:!mt-4",
+            "font-heading [&+]*:[code]:text-xl mt-10 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16 [&+.steps]:mt-0! [&+.steps>h3]:mt-4! [&+h3]:mt-6! [&+p]:mt-4!",
             className
           )}
           {...props}
@@ -56,7 +56,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: ({ className, ...props }: React.ComponentProps<"h3">) => (
       <h3
         className={cn(
-          "font-heading mt-12 scroll-m-28 text-lg font-medium tracking-tight [&+p]:!mt-4 *:[code]:text-xl",
+          "font-heading mt-12 scroll-m-28 text-lg font-medium tracking-tight [&+p]:mt-4! *:[code]:text-xl",
           className
         )}
         {...props}
@@ -87,7 +87,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <a className={cn("font-medium underline underline-offset-4", className)} {...props} />
     ),
     p: ({ className, ...props }: React.ComponentProps<"p">) => (
-      <p className={cn("leading-relaxed [&:not(:first-child)]:mt-6", className)} {...props} />
+      <p className={cn("leading-relaxed not-first:mt-6", className)} {...props} />
     ),
     strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
       <strong className={cn("font-medium", className)} {...props} />
@@ -121,7 +121,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     th: ({ className, ...props }: React.ComponentProps<"th">) => (
       <th
         className={cn(
-          "px-4 py-2 text-left font-bold bg-muted/50 [&[align=center]]:text-center [&[align=right]]:text-right",
+          "px-4 py-2 text-left font-bold bg-muted/50 [[align=center]]:text-center [[align=right]]:text-right",
           className
         )}
         {...props}
@@ -130,7 +130,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     td: ({ className, ...props }: React.ComponentProps<"td">) => (
       <td
         className={cn(
-          "px-4 py-2 text-left whitespace-nowrap [&[align=center]]:text-center [&[align=right]]:text-right",
+          "px-4 py-2 text-left whitespace-nowrap [[align=center]]:text-center [[align=right]]:text-right",
           className
         )}
         {...props}
@@ -175,4 +175,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     ...components,
   };
+}
+
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return makeMDXComponents(components);
 }

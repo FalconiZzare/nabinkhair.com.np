@@ -1,6 +1,6 @@
 "use client";
 
-import ShellWrapper from "@/components/shell-wrapper";
+import ShellWrapper from "@/components/layouts/shell-wrapper";
 import {
   type Activity,
   ContributionGraph,
@@ -9,7 +9,7 @@ import {
   ContributionGraphFooter,
   ContributionGraphLegend,
   ContributionGraphTotalCount,
-} from "@/components/ui/contribution-graph";
+} from "@/components/ui/extended/contribution-graph";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 

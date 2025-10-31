@@ -1,6 +1,6 @@
-import { TechStacksList } from "@/config/developer-stack";
+import { TechStacksList } from "@/dev-constants/stack";
 import Image from "next/image";
-import ShellWrapper from "./shell-wrapper";
+import ShellWrapper from "../layouts/shell-wrapper";
 
 const DeveloperStack = () => {
   return (

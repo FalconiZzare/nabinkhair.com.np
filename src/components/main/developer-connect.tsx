@@ -1,6 +1,6 @@
-import ShellWrapper from "@/components/shell-wrapper";
+import ShellWrapper from "@/components/layouts/shell-wrapper";
 import { Button } from "@/components/ui/button";
-import { DeveloperDetails } from "@/config/developer-details";
+import { DeveloperDetails } from "@/dev-constants/details";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight, FileText, Mail } from "lucide-react";
 import Image from "next/image";

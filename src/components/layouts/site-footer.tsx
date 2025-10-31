@@ -1,4 +1,4 @@
-import { DeveloperDetails } from "@/config/developer-details";
+import { DeveloperDetails } from "@/dev-constants/details";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
@@ -9,27 +9,24 @@ const SiteFooter = () => {
         <div className="flex flex-col items-center justify-center w-full space-y-1">
           <p className="font-bold text-lg text-center">devn</p>
           <p className="text-sm text-muted-foreground text-center">
-            Built with Next.js and Tailwind CSS by{" "}
+            Built by{" "}
             <Link
               href={DeveloperDetails.socialLinks[1].url}
               className="hover:underline underline-offset-2 hover:text-primary transition-colors duration-300"
               title={`Developer ${DeveloperDetails.socialLinks[1].name} account`}
             >
-              @nabinkhair
+              nabinkhair
               <ArrowUpRight size={15} className="inline-block" />
-            </Link>
-          </p>
-          {/*  */}
-          <p className="text-sm text-muted-foreground text-center">
-            Inspired by{" "}
+            </Link>{" "}
+            at{" "}
             <Link
-              href="https://chanhdai.com/"
-              className="hover:underline underline-offset-2 hover:text-primary transition-colors duration-300"
-              title="Chanh Dai's Website"
+              href="https://github.com/codixra"
+              className="hover:underline underline-offset-2 hover:text-amber-400 transition-colors duration-300"
+              title="Codixra Lab GitHub account"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Chanh Dai
+              codixra
               <ArrowUpRight size={15} className="inline-block" />
             </Link>
           </p>

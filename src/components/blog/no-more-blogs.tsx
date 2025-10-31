@@ -1,4 +1,4 @@
-import ShellWrapper from "@/components/shell-wrapper";
+import ShellWrapper from "@/components/layouts/shell-wrapper";
 
 // this will get removed once i have enough blogs
 export const NoMoreBlogs = () => {

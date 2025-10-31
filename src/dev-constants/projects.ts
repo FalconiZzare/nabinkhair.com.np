@@ -1,14 +1,4 @@
-import type { TechStack } from "@/config/developer-stack";
-
-interface Projects {
-  icon: string;
-  title: string;
-  tagline: string;
-  description: Array<string>;
-  liveLink?: string;
-  repo?: string;
-  techStack: Array<TechStack>;
-}
+import type { Projects } from "@/types";
 
 export const ProjectsData: Projects[] = [
   {
@@ -22,7 +12,6 @@ export const ProjectsData: Projects[] = [
       "Beautiful UI built with shadcn/ui components and Tailwind CSS",
     ],
     liveLink: "https://better-form.nabinkhair.com.np",
-    // repo: "https://github.com/nabinkhair42/better-form",
     techStack: [
       { name: "Next.js", icon: "/tech-icon/nextjs.svg", hasDarkIcon: true },
       { name: "TypeScript", icon: "/tech-icon/typescript.svg" },

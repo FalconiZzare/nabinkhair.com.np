@@ -1,7 +1,7 @@
 "use client";
 
-import { GitHubButtons } from "@/components/ui/github-buttons";
-import ThemeSwitcher from "@/components/ui/theme-switcher";
+import { GitHubButtons } from "@/components/ui/extended/github-buttons";
+import ThemeSwitcher from "@/components/ui/extended/theme-switcher";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 

@@ -1,7 +1,7 @@
 import "./globals.css";
 import SiteFooter from "@/components/layouts/site-footer";
 import SiteHeader from "@/components/layouts/site-header";
-import { DeveloperDetails } from "@/config/developer-details";
+import { DeveloperDetails } from "@/dev-constants/details";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Space_Grotesk } from "next/font/google";

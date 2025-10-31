@@ -1,4 +1,4 @@
-import ShellWrapper from "@/components/shell-wrapper";
+import ShellWrapper from "@/components/layouts/shell-wrapper";
 import type { BlogFrontmatter } from "@/lib/markdown/mdx";
 import { Calendar, Clock, User } from "lucide-react";
 import Image from "next/image";

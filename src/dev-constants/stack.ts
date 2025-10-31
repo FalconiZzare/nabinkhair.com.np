@@ -1,9 +1,5 @@
-export interface TechStack {
-  name: string;
-  icon: string;
-  hasDarkIcon?: boolean;
-  link?: string;
-}
+import type { TechStack } from "@/types";
+
 export const TechStacksList: TechStack[] = [
   { name: "AWS", icon: "/tech-icon/aws.svg", hasDarkIcon: true },
   { name: "Bash", icon: "/tech-icon/bash.svg", hasDarkIcon: true },

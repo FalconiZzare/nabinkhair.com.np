@@ -1,16 +1,4 @@
-import type { TechStack } from "@/config/developer-stack";
-
-interface Experience {
-  company: string;
-  logo: string;
-  designation: string;
-  type: "Full-time" | "Part-time" | "Internship" | "Freelance" | "Contract";
-  startDate: string;
-  endDate: string;
-  description: string[];
-  skills: Array<TechStack>;
-  isCurrent: boolean;
-}
+import type { Experience } from "@/types";
 
 export const ExperienceData: Experience[] = [
   {

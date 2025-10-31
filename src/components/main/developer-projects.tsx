@@ -1,7 +1,7 @@
-import ShellWrapper from "@/components/shell-wrapper";
+import ShellWrapper from "@/components/layouts/shell-wrapper";
 import { Button } from "@/components/ui/button";
-import StackBadge from "@/components/ui/stack-badge";
-import { ProjectsData } from "@/config/developer-projects";
+import StackBadge from "@/components/ui/extended/stack-badge";
+import { ProjectsData } from "@/dev-constants/projects";
 import { DotIcon, Globe, PlusIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
