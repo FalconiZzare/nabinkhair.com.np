@@ -81,9 +81,9 @@ export const DeveloperDetails: DeveloperConfig = {
     country: "Nepal",
   },
   seo: {
-    title: "Nabin Khair | Frontend Developer",
-    description: "Nabin Khair | Frontend developer building accessible, high-performance web apps.",
-    keywords: ["frontend", "developer", "react", "nextjs", "typescript"],
+    title: "Nabin Khair | Full Stack Developer",
+    description: "Nabin Khair | Full Stack developer building accessible, high-performance web apps.",
+    keywords: ["FullStack", "developer", "react", "nextjs", "typescript", "web development", "portfolio", "nabinkhair", "nabinkhair42"],
   },
   education: [
     {
