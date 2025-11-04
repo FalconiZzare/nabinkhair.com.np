@@ -1,0 +1,152 @@
+---
+title: "Git Recovery Guide"
+description: "A practical reference for rescuing work when Git history goes wrong."
+developer: "Nabin Khair"
+date: "2025-11-04"
+published: true
+image: "/blog/git-guides.webp"
+---
+
+When a Git mistake happens the first instinct is often panic. A calm recovery plan keeps valuable work intact. This guide collects the commands I rely on when something breaks, written in plain language so you can follow it under pressure.
+
+## Start With a Safety Snapshot
+
+Before touching commits, copy the current state. Create a temporary branch so nothing is lost while you experiment.
+
+```bash
+git switch -c rescue/snapshot-$(date +%s)
+```
+
+You can now return to the main branch and continue the rescue with a backup ready.
+
+## Scenario 1: Uncommitted Work Vanished
+
+Sometimes files disappear after a checkout or reset. Git almost always remembers them.
+
+Check the stash list first:
+
+```bash
+git stash list
+git stash show -p stash@{0}
+```
+
+If the change is there, apply it and drop the entry once verified.
+
+```bash
+git stash apply stash@{0}
+```
+
+If the stash is empty, inspect the reflog. It records every move your HEAD made.
+
+```bash
+git reflog
+```
+
+Find the commit before the loss and restore it.
+
+```bash
+git checkout <hash>
+```
+
+Copy the necessary files back into your working tree, then return to your branch.
+
+```bash
+git switch main
+```
+
+## Scenario 2: Wrong Commit on Main
+
+When an accidental commit reaches the main branch, decide whether it has been shared.
+
+If nobody else pulled it, use a soft reset to keep the changes staged.
+
+```bash
+git reset --soft HEAD~1
+```
+
+Fix the files and recommit.
+
+If the commit was pushed, use `git revert` so collaborators keep a clean history.
+
+```bash
+git revert <hash>
+```
+
+This creates a new commit that undoes the bad one, leaving a clear trail of what happened.
+
+## Scenario 3: Tracking Down a Production Bug
+
+The fastest way to locate a regression is `git bisect`. It performs a binary search through history.
+
+Start the session by marking a good and a bad revision.
+
+```bash
+git bisect start
+```
+
+```bash
+git bisect bad HEAD
+```
+
+```bash
+git bisect good <known-good-hash>
+```
+
+Git checks out a midpoint. Test the build; if the bug appears run `git bisect bad`, otherwise `git bisect good`. Repeat until Git prints the offending commit. Finish the session with `git bisect reset` to return to your branch.
+
+## Scenario 4: Multiple Tasks on One Branch
+
+Working on unrelated features inside one branch slows everyone down. Use `git worktree` to create a separate workspace without cloning the repository again.
+
+```bash
+git worktree add ../feature-login login-form
+```
+
+The command above creates a new folder `../feature-login` checked out on branch `login-form`. You can switch between directories and work independently, avoiding messy stash juggling.
+
+Remove the workspace when the task ends.
+
+```bash
+git worktree remove ../feature-login
+```
+
+## Scenario 5: Merge Conflicts That Keep Returning
+
+Large conflicts can reappear whenever you rebase or merge. Teach Git to remember your resolutions. Enable `rerere` once and Git stores future conflict fixes automatically.
+
+```bash
+git config --global rerere.enabled true
+```
+
+When a conflict shows up again, Git applies the previous resolution instantly. Always verify the result before committing.
+
+## Useful Commands That Often Rescue Me
+
+`git restore --staged <file>` returns a file from the index back to the working tree when you added it too early.
+
+`git reset --patch` lets you unstage portions of a file. It is ideal when you accidentally bundled multiple changes into one commit.
+
+`git commit --amend` rewrites the most recent commit. Use it for fixing typos or adding forgotten files before you share the branch.
+
+`git clean -n` previews which untracked files Git will delete. Run `git clean -f` only after you feel safe with the preview.
+
+## Decision Table
+
+| Situation | Command to Reach For |
+| --- | --- |
+| Lost uncommitted work | `git stash list`, `git reflog` |
+| Undo local commit | `git reset --soft HEAD~1` |
+| Undo shared commit | `git revert <hash>` |
+| Trace a regression | `git bisect` |
+| Parallel tasks | `git worktree add` |
+| Repeat conflict resolution | `git config --global rerere.enabled true` |
+
+## Final Checklist
+
+1. Snapshot the repository before changing history.
+2. Recover lost edits from stash or reflog before editing new files.
+3. Choose reset or revert based on whether the commit is public.
+4. Use bisect for fast regression hunts.
+5. Lean on worktrees and rerere to keep multi-branch work smooth.
+
+Store this guide somewhere accessible. In a stressful moment, having a calm plan is the difference between losing hours of work and rescuing everything in minutes.
