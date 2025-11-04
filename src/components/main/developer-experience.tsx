@@ -1,14 +1,14 @@
 import ShellWrapper from "@/components/layouts/shell-wrapper";
 import {
   ExpandableSection,
-  ExpandableSectionHeader,
-  ExpandableSectionLabel,
-  ExpandableSectionTitle,
-  ExpandableSectionDescription,
-  ExpandableSectionList,
-  ExpandableSectionItem,
-  ExpandableSectionTrigger,
   ExpandableSectionContent,
+  ExpandableSectionDescription,
+  ExpandableSectionHeader,
+  ExpandableSectionItem,
+  ExpandableSectionLabel,
+  ExpandableSectionList,
+  ExpandableSectionTitle,
+  ExpandableSectionTrigger,
 } from "@/components/ui/extended/expandable-section";
 import StackBadge from "@/components/ui/extended/stack-badge";
 import { ExperienceData } from "@/dev-constants/experience";

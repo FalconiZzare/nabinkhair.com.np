@@ -31,7 +31,10 @@ export const BlogsGrid = ({ posts, maxPosts }: BlogsGridProps) => {
                 <BlogCard key={slug} link={`/blog/${slug}`} className="group">
                   <BlogCardImage src={frontmatter.image || "/image.png"} alt={frontmatter.title} />
                   <BlogCardContent className="space-y-2">
-                    <BlogCardTitle className="group-hover:underline group-hover:underline-offset-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                    <BlogCardTitle
+                      className="group-hover:underline group-hover:underline-offset-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                      title={frontmatter.title}
+                    >
                       {frontmatter.title}
                     </BlogCardTitle>
                     <BlogCardDescription>{frontmatter.description}</BlogCardDescription>

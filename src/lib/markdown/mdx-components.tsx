@@ -177,7 +177,6 @@ export function makeMDXComponents(components: MDXComponents): MDXComponents {
   };
 }
 
-
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return makeMDXComponents(components);
 }

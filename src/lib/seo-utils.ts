@@ -39,3 +39,12 @@ export const generateRobots = (): MetadataRoute.Robots => {
     host: siteUrl,
   };
 };
+
+export const blogMetadata = () => {
+  return {
+    title: "Blog | Nabin Khair",
+    description:
+      "Something worth reading during your free time to improve your skills and knowledge",
+    keywords: ["Blog", "Nabin Khair", "Developer Blog"],
+  };
+};

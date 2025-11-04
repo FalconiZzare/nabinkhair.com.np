@@ -63,5 +63,3 @@ export interface Experience {
   skills: Array<TechStack>;
   isCurrent: boolean;
 }
-
-
