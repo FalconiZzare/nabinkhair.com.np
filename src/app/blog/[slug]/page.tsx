@@ -67,7 +67,7 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
         <BlogHeader frontmatter={post.frontmatter} readingTime={post.readingTime} />
       </ShellWrapper>
       <ShellWrapper>
-        <article className="p-2">
+        <article className="p-2 text-justify">
           {" "}
           {/* TODO: Think about the padding */}
           <MDXRemote source={post.content} components={components} options={mdxOptions} />
