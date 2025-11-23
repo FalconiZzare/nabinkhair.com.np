@@ -24,7 +24,7 @@ const DeveloperConnect = () => {
             </p>
           </header>
 
-          <div className="grid grid-cols-2 border [&>*]:border-r [&>*]:border-b [&>*:nth-child(2n)]:border-r-0 [&>*:nth-last-child(-n+2)]:border-b-0">
+          <div className="grid grid-cols-2 border *:border-r *:border-b [&>*:nth-child(2n)]:border-r-0 [&>*:nth-last-child(-n+2)]:border-b-0">
             {Object.entries(SocialLinks).map(([key, link]) => (
               <Link
                 key={key}
