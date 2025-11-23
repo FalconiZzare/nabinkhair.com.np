@@ -24,7 +24,7 @@ const DeveloperConnect = () => {
             </p>
           </header>
 
-          <div className="grid grid-cols-2 ">
+          <div className="grid grid-cols-2 border [&>*]:border-r [&>*]:border-b [&>*:nth-child(2n)]:border-r-0 [&>*:nth-last-child(-n+2)]:border-b-0">
             {Object.entries(SocialLinks).map(([key, link]) => (
               <Link
                 key={key}
@@ -32,7 +32,7 @@ const DeveloperConnect = () => {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={`Open ${link.handle} on ${key}`}
-                className="flex items-center gap-2 p-3 border group"
+                className="flex items-center gap-2 p-3 group"
               >
                 <span className="flex size-12 items-center justify-center ">
                   <Image
