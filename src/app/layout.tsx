@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={font.className}>
+      <body className={font.className} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -1,3 +1,5 @@
+"use client";
+
 import ShellWrapper from "@/components/layouts/shell-wrapper";
 import {
   ExpandableSection,
@@ -13,6 +15,7 @@ import {
 import StackBadge from "@/components/ui/extended/stack-badge";
 import { ExperienceData } from "@/dev-constants/experience";
 import { DotIcon } from "lucide-react";
+import { motion } from "motion/react";
 import Image from "next/image";
 
 const DeveloperExperience = () => {
@@ -48,8 +51,20 @@ const DeveloperExperience = () => {
                         {experience.company}
                       </h3>
                       {experience.isCurrent && (
-                        <div className="border h-2 w-2 flex items-center justify-center border-blue-600 rounded-full ">
-                          <span className="h-2 w-2 inline-flex rounded-full opacity-75 bg-blue-500 animate-caret-blink duration-700" />
+                        <div className="relative flex h-3 w-3 items-center justify-center">
+                          <motion.span
+                            className="absolute h-full w-full rounded-full bg-emerald-400"
+                            animate={{
+                              scale: [1, 1.8, 1.8],
+                              opacity: [0.7, 0, 0],
+                            }}
+                            transition={{
+                              duration: 1.5,
+                              repeat: Number.POSITIVE_INFINITY,
+                              ease: "easeOut",
+                            }}
+                          />
+                          <span className="relative h-2 w-2 rounded-full bg-emerald-500" />
                         </div>
                       )}
                     </div>

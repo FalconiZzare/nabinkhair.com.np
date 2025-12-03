@@ -1,5 +1,8 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { PlusIcon } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
 // Root component
@@ -114,64 +117,121 @@ const ExpandableSectionList = React.forwardRef<HTMLDivElement, ExpandableSection
 );
 ExpandableSectionList.displayName = "ExpandableSectionList";
 
-// Item component
-interface ExpandableSectionItemProps extends React.DetailsHTMLAttributes<HTMLDetailsElement> {
+// Item component - now controlled with React state
+interface ExpandableSectionItemProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
+  defaultOpen?: boolean;
 }
 
-const ExpandableSectionItem = React.forwardRef<HTMLDetailsElement, ExpandableSectionItemProps>(
-  ({ className, children, ...props }, ref) => {
+interface ExpandableSectionItemContextValue {
+  isOpen: boolean;
+  toggle: () => void;
+}
+
+const ExpandableSectionItemContext = React.createContext<ExpandableSectionItemContextValue | null>(
+  null
+);
+
+const useExpandableSectionItem = () => {
+  const context = React.useContext(ExpandableSectionItemContext);
+  if (!context) {
+    throw new Error("useExpandableSectionItem must be used within an ExpandableSectionItem");
+  }
+  return context;
+};
+
+const ExpandableSectionItem = React.forwardRef<HTMLDivElement, ExpandableSectionItemProps>(
+  ({ className, children, defaultOpen = false, ...props }, ref) => {
+    const [isOpen, setIsOpen] = React.useState(defaultOpen);
+
+    const toggle = React.useCallback(() => {
+      setIsOpen((prev) => !prev);
+    }, []);
+
     return (
-      <details ref={ref} className={cn("group", className)} {...props}>
-        {children}
-      </details>
+      <ExpandableSectionItemContext.Provider value={{ isOpen, toggle }}>
+        <div ref={ref} className={cn("group", className)} data-state={isOpen ? "open" : "closed"} {...props}>
+          {children}
+        </div>
+      </ExpandableSectionItemContext.Provider>
     );
   }
 );
 ExpandableSectionItem.displayName = "ExpandableSectionItem";
 
-// Trigger component (summary)
-interface ExpandableSectionTriggerProps extends React.HTMLAttributes<HTMLElement> {
+// Trigger component
+interface ExpandableSectionTriggerProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-const ExpandableSectionTrigger = React.forwardRef<HTMLElement, ExpandableSectionTriggerProps>(
+const ExpandableSectionTrigger = React.forwardRef<HTMLButtonElement, ExpandableSectionTriggerProps>(
   ({ className, children, ...props }, ref) => {
+    const { isOpen, toggle } = useExpandableSectionItem();
+
     return (
-      <summary
+      <button
         ref={ref}
-        className={cn("flex cursor-pointer items-center justify-between p-2", className)}
+        type="button"
+        onClick={toggle}
+        className={cn(
+          "flex w-full cursor-pointer items-center justify-between p-2 text-left",
+          className
+        )}
+        aria-expanded={isOpen}
         {...props}
       >
         {children}
-        <span className="text-sm uppercase tracking-[0.3em] text-muted-foreground transition group-open:rotate-45">
+        <motion.span
+          className="text-sm uppercase tracking-[0.3em] text-muted-foreground"
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+        >
           <PlusIcon />
-        </span>
-      </summary>
+        </motion.span>
+      </button>
     );
   }
 );
 ExpandableSectionTrigger.displayName = "ExpandableSectionTrigger";
 
-// Content component
+// Content component with Motion animations
 interface ExpandableSectionContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
 const ExpandableSectionContent = React.forwardRef<HTMLDivElement, ExpandableSectionContentProps>(
   ({ className, children, ...props }, ref) => {
+    const { isOpen } = useExpandableSectionItem();
+
     return (
-      <div
-        className={cn(
-          "grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out group-open:grid-rows-[1fr]"
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+              transition: {
+                height: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+                opacity: { duration: 0.25, delay: 0.05 },
+              },
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+              transition: {
+                height: { duration: 0.25, ease: [0.4, 0, 0.2, 1] },
+                opacity: { duration: 0.15 },
+              },
+            }}
+            className="overflow-hidden"
+          >
+            <div ref={ref} className={cn("space-y-3 mt-3 pl-11", className)} {...props}>
+              {children}
+            </div>
+          </motion.div>
         )}
-      >
-        <div className="overflow-hidden">
-          <div ref={ref} className={cn("space-y-3 mt-3 pl-11", className)} {...props}>
-            {children}
-          </div>
-        </div>
-      </div>
+      </AnimatePresence>
     );
   }
 );

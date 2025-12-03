@@ -2,6 +2,34 @@ import type { Experience } from "@/types";
 
 export const ExperienceData: Experience[] = [
   {
+    company: "Mersel AI",
+    logo: "/company/mersel-ai.png",
+    designation: "Founding Engineer",
+    type: "Full-time",
+    startDate: "11.2025",
+    endDate: "Present",
+    isCurrent: true,
+    description: [
+      "Design and develop scalable web AI powered video generation platform.",
+      "Implement robust backend services and APIs to support AI functionalities.",
+      "Integrate cross-platform AI models into the platform.",
+      "Optimize application performance and ensure seamless user experience.",
+      "Design optimal pipelines for various video generation use-cases.",
+    ],
+    skills: [
+      { name: "Next.js", icon: "/tech-icon/nextjs.svg", hasDarkIcon: true },
+      { name: "TypeScript", icon: "/tech-icon/typescript.svg" },
+      { name: "Express.js", icon: "/tech-icon/expressjs.svg", hasDarkIcon: true },
+      { name: "Supabase", icon: "/tech-icon/supabase.svg" },
+      { name: "Vertex", icon: "/tech-icon/vertex-ai.svg" },
+      { name: "Vercel", icon: "/tech-icon/vercel.svg", hasDarkIcon: true },
+      { name: "Gemini", icon: "/tech-icon/gemini.svg" },
+      { name: "Cloud Run", icon: "/tech-icon/cloud-run.svg" },
+      { name: "Go", icon: "/tech-icon/go.svg" },
+      { name: "Stripe", icon: "/tech-icon/stripe.svg" },
+    ],
+  },
+  {
     company: "Tulio Health",
     logo: "/company/tulio-health.svg",
     designation: "Software Engineer",
