@@ -9,7 +9,7 @@ export function BlogIntroduction() {
       <section className="space-y-4 p-2 bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)]">
         <header className="space-y-2">
           <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Blog</p>
-          <h1 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+          <h1 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
             Something worth reading.
           </h1>
           <p className="text-base leading-relaxed text-justify text-muted-foreground">

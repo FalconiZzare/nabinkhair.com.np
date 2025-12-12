@@ -1,15 +1,15 @@
 import ShellWrapper from "@/components/layouts/shell-wrapper";
 import { Button } from "@/components/ui/button";
 import {
-  ExpandableSection,
-  ExpandableSectionContent,
-  ExpandableSectionDescription,
-  ExpandableSectionHeader,
-  ExpandableSectionItem,
-  ExpandableSectionLabel,
-  ExpandableSectionList,
-  ExpandableSectionTitle,
-  ExpandableSectionTrigger,
+    ExpandableSection,
+    ExpandableSectionContent,
+    ExpandableSectionDescription,
+    ExpandableSectionHeader,
+    ExpandableSectionItem,
+    ExpandableSectionLabel,
+    ExpandableSectionList,
+    ExpandableSectionTitle,
+    ExpandableSectionTrigger,
 } from "@/components/ui/extended/expandable-section";
 import StackBadge from "@/components/ui/extended/stack-badge";
 import { ProjectsData } from "@/dev-constants/projects";
@@ -45,7 +45,7 @@ const DeveloperProjects = () => {
                     />
                   </div>
                   <div className="space-y-1 pl-3">
-                    <h3 className="text-lg font-semibold text-foreground md:text-xl">
+                    <h3 className="text-lg font-medium text-foreground md:text-xl">
                       {project.title}
                     </h3>
                     <p className="text-sm text-muted-foreground">{project.tagline}</p>

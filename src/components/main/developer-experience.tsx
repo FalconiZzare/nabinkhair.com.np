@@ -2,15 +2,15 @@
 
 import ShellWrapper from "@/components/layouts/shell-wrapper";
 import {
-  ExpandableSection,
-  ExpandableSectionContent,
-  ExpandableSectionDescription,
-  ExpandableSectionHeader,
-  ExpandableSectionItem,
-  ExpandableSectionLabel,
-  ExpandableSectionList,
-  ExpandableSectionTitle,
-  ExpandableSectionTrigger,
+    ExpandableSection,
+    ExpandableSectionContent,
+    ExpandableSectionDescription,
+    ExpandableSectionHeader,
+    ExpandableSectionItem,
+    ExpandableSectionLabel,
+    ExpandableSectionList,
+    ExpandableSectionTitle,
+    ExpandableSectionTrigger,
 } from "@/components/ui/extended/expandable-section";
 import StackBadge from "@/components/ui/extended/stack-badge";
 import { ExperienceData } from "@/dev-constants/experience";
@@ -47,7 +47,7 @@ const DeveloperExperience = () => {
                   </div>
                   <div className="space-y-1 pl-3">
                     <div className="flex space-x-1 items-center">
-                      <h3 className="text-lg font-semibold text-foreground md:text-xl">
+                      <h3 className="text-lg font-medium text-foreground md:text-xl">
                         {experience.company}
                       </h3>
                       {experience.isCurrent && (

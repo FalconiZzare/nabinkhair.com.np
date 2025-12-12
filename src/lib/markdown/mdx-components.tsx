@@ -32,7 +32,7 @@ export function makeMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
       <h1
-        className={cn("font-heading mt-2 scroll-m-28 text-3xl font-bold tracking-tight", className)}
+        className={cn("font-heading mt-2 scroll-m-28 text-3xl font-medium tracking-tight", className)}
         {...props}
       />
     ),
@@ -121,7 +121,7 @@ export function makeMDXComponents(components: MDXComponents): MDXComponents {
     th: ({ className, ...props }: React.ComponentProps<"th">) => (
       <th
         className={cn(
-          "px-4 py-2 text-left font-bold bg-muted/50 [[align=center]]:text-center [[align=right]]:text-right",
+          "px-4 py-2 text-left font-medium bg-muted/50 [[align=center]]:text-center [[align=right]]:text-right",
           className
         )}
         {...props}
@@ -140,7 +140,7 @@ export function makeMDXComponents(components: MDXComponents): MDXComponents {
     code: ({ children, className }) => {
       if (!className) {
         return (
-          <code className="relative rounded bg-muted px-[3px] py-px font-mono text-sm font-semibold">
+          <code className="relative rounded bg-muted px-[3px] py-px font-mono text-sm font-medium">
             {children}
           </code>
         );

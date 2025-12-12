@@ -18,7 +18,7 @@ const DeveloperIntro = () => {
           />
           <div className="space-y-2">
             <div className="space-y-1">
-              <h1 className="mt-1 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              <h1 className="mt-1 text-3xl font-medium tracking-tight text-foreground md:text-4xl">
                 {name}
               </h1>
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">

@@ -15,7 +15,7 @@ const DeveloperConnect = () => {
           <header className="space-y-2">
             <div className="space-y-1">
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Connect</p>
-              <h1 className="mt-1 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              <h1 className="mt-1 text-3xl font-medium tracking-tight text-foreground md:text-4xl">
                 Let&apos;s build together
               </h1>
             </div>
@@ -53,7 +53,7 @@ const DeveloperConnect = () => {
                   ) : null}
                 </span>
                 <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                  <span className="truncate text-sm font-semibold text-foreground">
+                  <span className="truncate text-sm font-medium text-foreground">
                     {link.name}
                   </span>
                   <span className="truncate text-xs text-muted-foreground">{link.handle}</span>
@@ -70,7 +70,7 @@ const DeveloperConnect = () => {
         <section className="space-y-4 p-2 bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)]">
           <div className="flex flex-col space-y-2">
             <div className="space-y-1">
-              <h2 className="text-2xl font-semibold text-foreground">Prefer a direct line?</h2>
+              <h2 className="text-2xl font-medium text-foreground">Prefer a direct line?</h2>
               <p className="text-sm text-muted-foreground">
                 Email lands straight in my inbox and my resume is updated with every new engagement.
               </p>

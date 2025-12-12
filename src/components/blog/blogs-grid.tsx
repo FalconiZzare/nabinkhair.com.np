@@ -74,7 +74,7 @@ export const BlogsGrid = ({ posts, maxPosts }: BlogsGridProps) => {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-20 text-center">
-            <h2 className="text-2xl font-bold mb-2">No blog posts found</h2>
+            <h2 className="text-2xl font-medium mb-2">No blog posts found</h2>
             <p className="text-muted-foreground">Check back later for new content!</p>
           </div>
         )}

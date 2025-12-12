@@ -14,7 +14,7 @@ export function BlogHeader({ frontmatter, readingTime }: BlogHeaderProps) {
       <ShellWrapper>
         <header className="space-y-3 p-2 bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)]">
           <div className="space-y-2">
-            <h1 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            <h1 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
               {frontmatter.title}
             </h1>
             <p className="text-base leading-relaxed text-justify text-muted-foreground">

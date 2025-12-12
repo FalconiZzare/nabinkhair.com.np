@@ -11,7 +11,7 @@ const DeveloperEducation = () => {
       <div className="space-y-3 p-2">
         <header className="space-y-2">
           <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Education</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+          <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
             Academic Background
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground">
@@ -39,7 +39,7 @@ const DeveloperEducation = () => {
                   )}
                 </div>
                 <div className="space-y-1 pl-3">
-                  <h3 className="text-lg font-semibold text-foreground md:text-xl">
+                  <h3 className="text-lg font-medium text-foreground md:text-xl">
                     {education.institution}
                   </h3>
                   <p className="text-sm text-muted-foreground">{education.degree}</p>
