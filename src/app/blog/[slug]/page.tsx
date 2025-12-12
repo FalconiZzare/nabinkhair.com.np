@@ -1,6 +1,7 @@
 import { BlogHeader } from "@/components/blog/blog-header";
 import PageShellWrapper from "@/components/layouts/page-shell";
 import ShellWrapper from "@/components/layouts/shell-wrapper";
+import { DeveloperDetails } from "@/dev-constants/details";
 import { getAllBlogSlugs, getBlogPostBySlug, mdxOptions } from "@/lib/markdown/mdx";
 import { useMDXComponents } from "@/lib/markdown/mdx-components";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -60,19 +61,48 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
     notFound();
   }
 
+  const siteUrl = DeveloperDetails.portfolio.replace(/\/$/, "");
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.frontmatter.title,
+    description: post.frontmatter.description,
+    image: post.frontmatter.image ? `${siteUrl}${post.frontmatter.image}` : undefined,
+    datePublished: post.frontmatter.date,
+    author: {
+      "@type": "Person",
+      name: post.frontmatter.developer,
+      url: siteUrl,
+    },
+    publisher: {
+      "@type": "Person",
+      name: DeveloperDetails.name,
+      url: siteUrl,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/blog/${slug}`,
+    },
+  };
+
   const components = useMDXComponents({});
   return (
-    <PageShellWrapper>
-      <ShellWrapper>
-        <BlogHeader frontmatter={post.frontmatter} readingTime={post.readingTime} />
-      </ShellWrapper>
-      <ShellWrapper>
-        <article className="p-2 text-justify">
-          {" "}
-          <MDXRemote source={post.content} components={components} options={mdxOptions} />
-        </article>
-      </ShellWrapper>
-    </PageShellWrapper>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <PageShellWrapper>
+        <ShellWrapper>
+          <BlogHeader frontmatter={post.frontmatter} readingTime={post.readingTime} />
+        </ShellWrapper>
+        <ShellWrapper>
+          <article className="p-2 text-justify">
+            <MDXRemote source={post.content} components={components} options={mdxOptions} />
+          </article>
+        </ShellWrapper>
+      </PageShellWrapper>
+    </>
   );
 };
 

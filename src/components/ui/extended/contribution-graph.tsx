@@ -428,7 +428,7 @@ export const ContributionGraphLegend = ({
   const { labels, maxLevel, blockSize, blockRadius } = useContributionGraph();
 
   return (
-    <div className={cn("ml-auto flex items-center gap-[3px]", className)} {...props}>
+    <div className={cn("ml-auto flex items-center gap-0.75", className)} {...props}>
       <span className="mr-1 text-muted-foreground">{labels.legend?.less || "Less"}</span>
       {new Array(maxLevel + 1).fill(undefined).map((_, level) =>
         children ? (

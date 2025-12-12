@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { PlusIcon } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import * as React from "react";
 
 // Root component
@@ -145,8 +145,10 @@ const ExpandableSectionItem = React.forwardRef<HTMLDivElement, ExpandableSection
       setIsOpen((prev) => !prev);
     }, []);
 
+    const contextValue = React.useMemo(() => ({ isOpen, toggle }), [isOpen, toggle]);
+
     return (
-      <ExpandableSectionItemContext.Provider value={{ isOpen, toggle }}>
+      <ExpandableSectionItemContext.Provider value={contextValue}>
         <div
           ref={ref}
           className={cn("group", className)}
@@ -169,6 +171,7 @@ interface ExpandableSectionTriggerProps extends React.HTMLAttributes<HTMLButtonE
 const ExpandableSectionTrigger = React.forwardRef<HTMLButtonElement, ExpandableSectionTriggerProps>(
   ({ className, children, ...props }, ref) => {
     const { isOpen, toggle } = useExpandableSectionItem();
+    const shouldReduceMotion = useReducedMotion();
 
     return (
       <button
@@ -186,7 +189,7 @@ const ExpandableSectionTrigger = React.forwardRef<HTMLButtonElement, ExpandableS
         <motion.span
           className="text-sm uppercase tracking-[0.3em] text-muted-foreground"
           animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2, ease: "easeOut" }}
         >
           <PlusIcon />
         </motion.span>
@@ -204,28 +207,35 @@ interface ExpandableSectionContentProps extends React.HTMLAttributes<HTMLDivElem
 const ExpandableSectionContent = React.forwardRef<HTMLDivElement, ExpandableSectionContentProps>(
   ({ className, children, ...props }, ref) => {
     const { isOpen } = useExpandableSectionItem();
+    const shouldReduceMotion = useReducedMotion();
 
     return (
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            initial={shouldReduceMotion ? false : { height: 0, opacity: 0 }}
             animate={{
               height: "auto",
               opacity: 1,
-              transition: {
-                height: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
-                opacity: { duration: 0.25, delay: 0.05 },
-              },
+              transition: shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    height: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+                    opacity: { duration: 0.25, delay: 0.05 },
+                  },
             }}
-            exit={{
-              height: 0,
-              opacity: 0,
-              transition: {
-                height: { duration: 0.25, ease: [0.4, 0, 0.2, 1] },
-                opacity: { duration: 0.15 },
-              },
-            }}
+            exit={
+              shouldReduceMotion
+                ? { height: 0, opacity: 0, transition: { duration: 0 } }
+                : {
+                    height: 0,
+                    opacity: 0,
+                    transition: {
+                      height: { duration: 0.25, ease: [0.4, 0, 0.2, 1] },
+                      opacity: { duration: 0.15 },
+                    },
+                  }
+            }
             className="overflow-hidden"
           >
             <div ref={ref} className={cn("space-y-3 mt-3 pl-11", className)} {...props}>

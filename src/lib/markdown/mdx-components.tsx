@@ -143,7 +143,7 @@ export function makeMDXComponents(components: MDXComponents): MDXComponents {
     code: ({ children, className }) => {
       if (!className) {
         return (
-          <code className="relative rounded bg-muted px-[3px] py-px font-mono text-sm font-medium">
+          <code className="relative rounded bg-muted px-0.75 py-px font-mono text-sm font-medium">
             {children}
           </code>
         );
