@@ -69,7 +69,6 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
       <ShellWrapper>
         <article className="p-2 text-justify">
           {" "}
-          {/* TODO: Think about the padding */}
           <MDXRemote source={post.content} components={components} options={mdxOptions} />
         </article>
       </ShellWrapper>

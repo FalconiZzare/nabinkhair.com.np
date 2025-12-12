@@ -1,9 +1,8 @@
 import ShellWrapper from "@/components/layouts/shell-wrapper";
 import { Button } from "@/components/ui/button";
+import ThemedIcon from "@/components/ui/extended/themed-icon";
 import { DeveloperDetails } from "@/dev-constants/details";
-import { cn } from "@/lib/utils";
 import { ArrowUpRight, FileText, Mail } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const DeveloperConnect = () => {
@@ -15,9 +14,9 @@ const DeveloperConnect = () => {
           <header className="space-y-2">
             <div className="space-y-1">
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Connect</p>
-              <h1 className="mt-1 text-3xl font-medium tracking-tight text-foreground md:text-4xl">
+              <h2 className="mt-1 text-3xl font-medium tracking-tight text-foreground md:text-4xl">
                 Let&apos;s build together
-              </h1>
+              </h2>
             </div>
             <p className="text-base leading-relaxed text-justify text-muted-foreground">
               Pick the channel that fits best every link here stays in sync with my latest work.
@@ -35,27 +34,16 @@ const DeveloperConnect = () => {
                 className="flex items-center gap-2 p-3 group"
               >
                 <span className="flex size-12 items-center justify-center ">
-                  <Image
+                  <ThemedIcon
                     src={link.icon}
                     alt={link.handle}
-                    width={32}
-                    height={32}
-                    className={cn("size-8", link.hasDarkIcon ? "dark:hidden" : "")}
+                    size={32}
+                    hasDarkVariant={link.hasDarkIcon}
+                    className="size-8"
                   />
-                  {link.hasDarkIcon ? (
-                    <Image
-                      src={link.icon.replace(".svg", "-dark.svg")}
-                      alt={link.handle}
-                      width={20}
-                      height={20}
-                      className="hidden size-5 dark:block"
-                    />
-                  ) : null}
                 </span>
                 <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                  <span className="truncate text-sm font-medium text-foreground">
-                    {link.name}
-                  </span>
+                  <span className="truncate text-sm font-medium text-foreground">{link.name}</span>
                   <span className="truncate text-xs text-muted-foreground">{link.handle}</span>
                 </div>
                 <div className="text-muted-foreground transition-colors group-hover:text-foreground">

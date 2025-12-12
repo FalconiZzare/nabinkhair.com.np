@@ -2,15 +2,15 @@
 
 import ShellWrapper from "@/components/layouts/shell-wrapper";
 import {
-    ExpandableSection,
-    ExpandableSectionContent,
-    ExpandableSectionDescription,
-    ExpandableSectionHeader,
-    ExpandableSectionItem,
-    ExpandableSectionLabel,
-    ExpandableSectionList,
-    ExpandableSectionTitle,
-    ExpandableSectionTrigger,
+  ExpandableSection,
+  ExpandableSectionContent,
+  ExpandableSectionDescription,
+  ExpandableSectionHeader,
+  ExpandableSectionItem,
+  ExpandableSectionLabel,
+  ExpandableSectionList,
+  ExpandableSectionTitle,
+  ExpandableSectionTrigger,
 } from "@/components/ui/extended/expandable-section";
 import StackBadge from "@/components/ui/extended/stack-badge";
 import { ExperienceData } from "@/dev-constants/experience";
@@ -32,8 +32,8 @@ const DeveloperExperience = () => {
         </ExpandableSectionHeader>
 
         <ExpandableSectionList>
-          {ExperienceData.map((experience, index) => (
-            <ExpandableSectionItem key={index}>
+          {ExperienceData.map((experience) => (
+            <ExpandableSectionItem key={experience.company}>
               <ExpandableSectionTrigger>
                 <div className="flex space-x-2">
                   <div>
@@ -81,8 +81,8 @@ const DeveloperExperience = () => {
               <ExpandableSectionContent>
                 {experience.description.length > 0 && (
                   <ul className="space-y-2 text-sm leading-relaxed text-muted-foreground">
-                    {experience.description.map((line, idx) => (
-                      <li key={idx} className="flex">
+                    {experience.description.map((line) => (
+                      <li key={line} className="flex">
                         <DotIcon />
                         <span>{line}</span>
                       </li>
@@ -91,9 +91,9 @@ const DeveloperExperience = () => {
                 )}
                 {experience.skills && (
                   <div className="flex flex-wrap gap-2">
-                    {experience.skills.map((skill, idx) => (
+                    {experience.skills.map((skill) => (
                       <StackBadge
-                        key={idx}
+                        key={skill.name}
                         name={skill.name}
                         icon={skill.icon}
                         hasDarkIcon={skill.hasDarkIcon}

@@ -20,8 +20,8 @@ const DeveloperEducation = () => {
         </header>
 
         <div className="flex flex-col space-y-3">
-          {educationData.map((education, index) => (
-            <div key={index} className="flex items-start justify-between p-2">
+          {educationData.map((education) => (
+            <div key={education.institution} className="flex items-start justify-between p-2">
               <div className="flex space-x-2">
                 <div>
                   {education.logo ? (

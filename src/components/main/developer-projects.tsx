@@ -1,17 +1,18 @@
 import ShellWrapper from "@/components/layouts/shell-wrapper";
 import { Button } from "@/components/ui/button";
 import {
-    ExpandableSection,
-    ExpandableSectionContent,
-    ExpandableSectionDescription,
-    ExpandableSectionHeader,
-    ExpandableSectionItem,
-    ExpandableSectionLabel,
-    ExpandableSectionList,
-    ExpandableSectionTitle,
-    ExpandableSectionTrigger,
+  ExpandableSection,
+  ExpandableSectionContent,
+  ExpandableSectionDescription,
+  ExpandableSectionHeader,
+  ExpandableSectionItem,
+  ExpandableSectionLabel,
+  ExpandableSectionList,
+  ExpandableSectionTitle,
+  ExpandableSectionTrigger,
 } from "@/components/ui/extended/expandable-section";
 import StackBadge from "@/components/ui/extended/stack-badge";
+import ThemedIcon from "@/components/ui/extended/themed-icon";
 import { ProjectsData } from "@/dev-constants/projects";
 import { DotIcon, Globe } from "lucide-react";
 import Image from "next/image";
@@ -31,8 +32,8 @@ const DeveloperProjects = () => {
         </ExpandableSectionHeader>
 
         <ExpandableSectionList>
-          {ProjectsData.map((project, index) => (
-            <ExpandableSectionItem key={index}>
+          {ProjectsData.map((project) => (
+            <ExpandableSectionItem key={project.title}>
               <ExpandableSectionTrigger>
                 <div className="flex space-x-2">
                   <div>
@@ -64,9 +65,9 @@ const DeveloperProjects = () => {
                 </ul>
                 {project.techStack && (
                   <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, idx) => (
+                    {project.techStack.map((tech) => (
                       <StackBadge
-                        key={idx}
+                        key={tech.name}
                         name={tech.name}
                         icon={tech.icon}
                         hasDarkIcon={tech.hasDarkIcon}
@@ -96,19 +97,12 @@ const DeveloperProjects = () => {
                           rel="noreferrer noopener"
                           aria-label={`View repository for ${project.title}`}
                         >
-                          <Image
+                          <ThemedIcon
                             src="/tech-icon/github.svg"
                             alt="GitHub"
-                            width={20}
-                            height={20}
-                            className={"h-4 w-4 rounded dark:hidden"}
-                          />
-                          <Image
-                            src="/tech-icon/github-dark.svg"
-                            alt="GitHub"
-                            width={16}
-                            height={16}
-                            className="hidden h-4 w-4 rounded dark:block"
+                            size={20}
+                            hasDarkVariant
+                            className="h-4 w-4 rounded"
                           />
                         </Link>
                       </Button>

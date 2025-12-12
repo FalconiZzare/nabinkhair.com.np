@@ -45,16 +45,12 @@ export function CopyButton({ value }: CopyButtonProps) {
       type="button"
       onClick={handleCopy}
       size={"icon"}
-      variant={"outline"}
+      variant={"ghost"}
       aria-label={copied ? "Code copied" : "Copy code"}
       title={copied ? "Copied" : "Copy code"}
-      className="h-7 w-7 rounded!"
+      className="size-6 rounded!"
     >
-      {copied ? (
-        <Check className="h-4 w-4" aria-hidden />
-      ) : (
-        <Copy className="h-4 w-4" aria-hidden />
-      )}
+      {copied ? <Check className="size-3" aria-hidden /> : <Copy className="size-3" aria-hidden />}
     </Button>
   );
 }

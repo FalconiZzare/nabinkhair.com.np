@@ -121,7 +121,7 @@ export async function CodeBlock({ code, language, meta }: CodeBlockProps) {
 
   return (
     <figure
-      className="not-prose overflow-hidden rounded border border-border bg-muted/20"
+      className="not-prose overflow-hidden rounded-sm border border-border bg-muted/20"
       data-language={language ?? lang}
     >
       <figcaption className="flex items-center justify-between border-b bg-muted/40 px-2 py-1 text-xs font-medium text-muted-foreground">

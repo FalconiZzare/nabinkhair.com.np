@@ -67,10 +67,7 @@ const ExpandableSectionTitle = React.forwardRef<HTMLHeadingElement, ExpandableSe
     return (
       <h2
         ref={ref}
-        className={cn(
-          "text-3xl font-medium tracking-tight text-foreground md:text-4xl",
-          className
-        )}
+        className={cn("text-3xl font-medium tracking-tight text-foreground md:text-4xl", className)}
         {...props}
       >
         {children}
@@ -150,7 +147,12 @@ const ExpandableSectionItem = React.forwardRef<HTMLDivElement, ExpandableSection
 
     return (
       <ExpandableSectionItemContext.Provider value={{ isOpen, toggle }}>
-        <div ref={ref} className={cn("group", className)} data-state={isOpen ? "open" : "closed"} {...props}>
+        <div
+          ref={ref}
+          className={cn("group", className)}
+          data-state={isOpen ? "open" : "closed"}
+          {...props}
+        >
           {children}
         </div>
       </ExpandableSectionItemContext.Provider>
